@@ -1,0 +1,303 @@
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+
+
+
+/*Header start*/
+#header-nav{
+	
+
+}
+
+.flex{
+	display: flex;
+}
+#bar1{
+	color: #666;
+	height: 30px;
+	background-color: #f8f8f8;
+	display: block;
+}
+
+
+#bar2{
+	display: flex;
+	background-color: #2d2d2d;
+	height: 60px;
+	padding-right: 108.6px;
+	padding-left: 108.6px;
+}
+#logo{
+	width: 122px;
+	height: 60px;
+	padding-right: 18px;
+	border-right: 1px solid #525050;
+}
+#logo>a{
+	text-decoration: none;
+}
+#logo a>#logoimg:hover{
+	color: #d4d4d4;
+}
+#logoimg{
+	color: #fff;
+	width: 104px;
+	height: 60px;
+	font-size: 38px;
+	padding-top:7px;
+	letter-spacing: -2px;
+	font-weight: 900;
+}
+#bar2-ul{
+	list-style-type: none;
+	overflow: hidden;
+	width: 230px;
+	height: 60px;
+	
+}
+.inline,ul>li{
+	display: inline;
+	float: left;
+}
+#bar2-ul li{
+	width: 113px;
+	height: 60px;
+}
+#bar2-ul li div>a{
+	display: block;
+	color: #fff;
+	text-decoration: none;
+	text-align: center;
+	letter-spacing: 2px;
+	font-weight: 900;
+	padding-top: 22px;
+	padding-bottom: 20px;
+	border-right: 1px solid #525050;
+}
+#bar2-ul li div>a:hover{
+	background-color: #444242;
+}
+
+#searchdiv{
+	display: flex;
+	width: 65.5%;
+	height: 60px;
+	padding: 11px 15px 11px 30px;
+}
+#searchform{
+		overflow: hidden;
+	position: relative;
+	width: 100%
+}
+#labelsrch{
+	width: 100%
+}
+input[type=search]{
+
+	height: 38px;
+	border: 0;
+	width: 100%;
+	border-radius: 19px/50%;
+	font-size: 1rem;
+	padding-right: 8px;
+	padding-left: 16px;
+	color: #2d2d2d;
+	background-color: #FFF;
+	outline: none;
+	box-shadow:inset 0 0 3px 1px #0770cf;
+}
+input[type=search]:focus{
+	box-shadow:inset 0 0 3px 1px #0770cf;
+	background-color: #d4d4d4;
+}
+
+#search-icon-btn{
+	height: 38px;
+	width: 38px;
+	background-color: #FFF;
+	border: none;
+	border-radius: 19px/50%;
+	box-shadow:inset 0 0 3px 1px #0770cf;
+}
+#search-icon-btn:hover{
+	background-color: #d4d4d4;
+}
+
+/* last added*/
+#for3ta{
+	width: 50px;
+}
+.divfor3ta{
+	width: 50px;
+}
+#usericonbtn{
+	width: 50px;
+	height: 60px;
+	padding: 12px 8px;
+	display: block;
+	cursor: pointer;
+	background-color: #2d2d2d;
+	border-style: none;
+}
+#usericonbtn:focus{
+	outline: none;
+
+}
+#usericonbtn i{
+	color: white;
+}
+#usericonbtn i:hover{
+	color: #d4d4d4;
+}
+
+.dropdown-content{
+	display: none;
+	position: absolute;
+	height: 150px;
+	width: 200px;
+	background-color: #fff;
+	border: 1px solid gray;
+}
+.dropdown-li{
+	width: 198px;
+	height: 50px;
+	padding-top: 12px;
+	padding-left: 15px;
+}
+#signin{
+	width: 198px;
+	height: 50px;
+	background-color: #cecece;
+	padding-top: 12px; 
+	padding-left: 15px;
+}
+
+.dropdown-li a,#signin a{
+	color: #2d2d2d;
+	text-decoration: none;
+}
+.dropdown-li a:hover,#signin a:hover{
+	color: #0770cf;
+
+}
+
+#dropdown-account:hover .dropdown-content {
+	display: block;
+}
+
+#bar3{
+	background-color: #525050;
+	height: 50px;
+}
+#bar4{
+	height: 50px;
+	background-color: rgb(255, 224, 136);
+}
+
+/*Header End*/
+
+/*Footer start*/
+#foot1{
+
+	background-color: #eee;
+	color: #666;
+	padding-right: 76.6px;
+	padding-left: 76.6px;
+	display: flex;
+}
+#foot2{
+	text-align: center;
+	background-color: #ddd;
+	color: #666;
+	height: 50px;
+	line-height: 50px;
+}
+
+
+.row {
+ float: left;
+ height: auto;
+ padding-top: 10px;
+ padding-left: 32px;
+ padding-right: 32px;
+ width: 33.33%;
+}
+
+#Hours,#Address,#Contactus{
+  	line-height: 2;
+}
+
+#Hours >span,#Address >span,#Contactus >span, #Aboutus >span{
+	font-size: 1em;
+	text-transform: uppercase;
+	border-bottom: 1px solid #000
+}
+#maps{
+	border:1px solid black;
+}
+#phone{
+	text-decoration: none;
+	color: #666;
+}
+#Aboutus>p{
+	font-size: .8em;
+	line-height: 15px;
+}
+#addP{
+	display: ;
+}
+/*Footer End*/
+
+/********** Large devices only **********/
+@media (min-width: 1200px) {
+
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+	#bar1,#bar2-ul,#bar3{
+		display: none;
+	}
+}
+
+/********** Extra small devices only **********/
+@media (max-width: 767px) {
+	#bar1,#bar2-ul,#bar3{
+		display: none;
+	}
+}
+@media (max-width: 660px) {
+	#bar1,#bar2-ul,#bar3{
+		display: none;
+	}
+	#Hours,#Aboutus{
+		display: none;
+	}
+	#Address,#Contactus{
+		width: 50%;
+	}
+}
+
+
+/***super extra small devices only ***/
+@media (max-width: 479px){
+	#bar1,#bar2-ul,#bar3{
+		display: none;
+	}
+	#Hours,#Aboutus,#Address{
+		display: none;
+	}
+	#Contactus{
+		width: 100%;
+	}
+}
