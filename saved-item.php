@@ -111,7 +111,20 @@
 
 				
 				<div id="bar3">
-					...
+					<div>
+						<ul class="flex">
+							<li id="b3">
+								<div class="b3op">
+									<a href="newin.php">New in</a>
+								</div>
+							</li>
+							<li id="b3">
+								<div class="b3op">
+									<a href="brands.php">Brands</a>
+								</div>
+							</li>
+						</ul>
+					</div>
 				</div><!--end of bar3-->
 				<div id="bar4">
 					---
