@@ -285,28 +285,43 @@ ul #b3 a:hover{
 }
 /*Footer End*/
 
-/********** Large devices only **********/
-@media (min-width: 1200px) {
 
+/********** Large devices only **********/
+@media (min-width: 1200px) and (max-width: 2560px) {
+	#srcbtnsml{
+		display: none;
+	}
 }
 
 /********** Medium devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
-
+	#srcbtnsml{
+		display: none;
+	}
 }
 
 
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
-	#bar1,#bar2-ul,#bar3{
+	#bar1,#bar2-ul,#bar3,#srcbtnsml{
 		display: none;
 	}
 }
 
 /********** Extra small devices only **********/
 @media (max-width: 767px) {
-	#bar1,#bar2-ul,#bar3{
+	#bar1,#bar2-ul,#bar3,#searchdiv{
 		display: none;
+	}
+	#flo{
+		width: 100%;
+	}
+	#floating{
+		float: right;
+	}
+	#srcbtnsml{
+		padding-top: 12px;
+		padding-right: 8px;
 	}
 }
 @media (max-width: 660px) {
