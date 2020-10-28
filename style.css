@@ -188,6 +188,59 @@ input[type=search]:focus{
 #dropdown-account:hover .dropdown-content {
 	display: block;
 }
+/*bar menu*/
+#bars{
+	color: #FFFFFF;
+	padding: 13px 15px;
+	height: 60px;
+	width: 50px;
+}
+.closebtn{
+	color: black;
+	
+}
+#clsbtn{
+	padding-left: 175px;
+}
+.over{
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #f7f7f7;
+  overflow: hidden;
+  transition: 0.5s;
+}
+#mw2{
+	height: 50px;
+	background-color: #2d2d2d;
+
+}
+.mw{
+	width: 50%;
+	text-align: center;
+	border-right: 1px solid white;
+	padding-top: 12px;
+}
+.mw a{
+	color: #FFFFFF;
+	text-decoration:none;
+	font-size: 20px;
+}
+.barsop{
+	height: 30px;
+	background-color: #cecece;
+	padding-top: 5px;
+	padding-left: 75px;
+}
+.barsop a{
+	color: black;
+	text-decoration: none;
+	text-align: center;
+}
+/*end bars menu*/
+
 /*end bar2*/
 
 /*start bar3*/
@@ -288,14 +341,14 @@ ul #b3 a:hover{
 
 /********** Large devices only **********/
 @media (min-width: 1200px) and (max-width: 2560px) {
-	#srcbtnsml{
+	#srcbtnsml,#bars{
 		display: none;
 	}
 }
 
 /********** Medium devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
-	#srcbtnsml{
+	#srcbtnsml,#bars{
 		display: none;
 	}
 }
@@ -305,6 +358,12 @@ ul #b3 a:hover{
 @media (min-width: 768px) and (max-width: 991px) {
 	#bar1,#bar2-ul,#bar3,#srcbtnsml{
 		display: none;
+	}
+	#bar1,#bar2,#bar3,#bar4{
+		padding: 0;
+	}
+	#foot1{
+		padding: 0px 40px;
 	}
 }
 

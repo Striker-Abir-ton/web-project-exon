@@ -16,7 +16,46 @@
 				<div id="bar1">
 					...
 				</div><!--end of bar1-->
-				<div id="bar2">
+				<div id="bar2" class="flex">
+					<div id="barmenu" class="over">
+						<span id="clsbtn">
+							<a href="#" class="closebtn" onclick="closenav()"><i class="fa fa-remove fa-2x"></i></a>
+						</span>
+						
+						 <div class="over-content">
+						  	<div id="mw2" class="flex">
+						  		<div class="mw">
+						  			<a href="men.php"><b>MEN</b></a>
+						  		</div>
+						  		<div class="mw">
+						  			<a href="women.php"><b>WOMEN</b></a>
+						  		</div>
+    							
+						  	</div>
+						  	<br>
+ 						    <div>
+ 						    	<div class="barsop">
+ 						    		<a href="exon.php">
+ 						    		<b>Home</b>
+ 						    	</a>
+ 						    	</div>
+ 						    	<br>
+ 						    	<div class="barsop">
+ 						    		<a href="newin.php"><b>New in</b></a>
+ 						    	</div>
+ 						    	<br>
+ 						    	<div class="barsop">
+ 						    		<a href="brands.php"><b>Brands</b></a>
+ 						    	</div>
+    							
+ 						    </div>
+    						
+  						</div>
+  						
+						
+					</div>
+					<span id="bars" onclick="opennav()"><i class="fa fa-bars fa-2x"></i></span>
+					
 					<div id="logo" class="inline">
 						<a href="exon.php">
             				<div id="logoimg">EXON</div>
@@ -137,12 +176,14 @@
 				<div id="bar4">
 					---
 				</div><!--end of bar4-->
+					
+	
+				
 			</div>	<!-- end-->
 		</nav> <!--Header nav end-->
 	</header>
 
-
-	<footer>
+		<footer>
 		<div>
 			<div id="foot1">
 				<div id="Hours"class="row">
@@ -182,5 +223,8 @@
 			</div> <!--foot2-->
 		</div>
 	</footer>
+
+
+	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>

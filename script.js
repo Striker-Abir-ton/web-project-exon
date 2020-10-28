@@ -7,3 +7,13 @@ function showpass() {
     x.type = "password";
   }
 }
+
+/* bar menu closable*/
+
+function opennav() {
+  document.getElementById("barmenu").style.width = "200px";
+}
+
+function closenav() {
+  document.getElementById("barmenu").style.width = "0%";
+}
