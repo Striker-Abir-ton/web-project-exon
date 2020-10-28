@@ -313,6 +313,12 @@ ul #b3 a:hover{
 	#bar1,#bar2-ul,#bar3,#searchdiv{
 		display: none;
 	}
+	#bar1,#bar2,#bar3,#bar4{
+		padding: 0;
+	}
+	#foot1{
+		padding: 0px 40px;
+	}
 	#flo{
 		width: 100%;
 	}

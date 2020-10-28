@@ -51,8 +51,16 @@
 
 					<!--last added start-->
 					<!--after search-->
-					<div>
-						<ul class="flex">
+					<div id="flo">
+						<ul class="flex" id="floating">
+							<li>
+								<div id="srcbtnsml">
+										<button id='search-icon-btn'type="button">
+											<i class="fa fa-search"></i>
+											<a href="srcresultsm.php"></a>
+										</button>
+								</div>
+							</li>
 							<li class='divfor3ta'>
 								<div  id='dropdown-account'>
 									<button id='usericonbtn' type="button">
