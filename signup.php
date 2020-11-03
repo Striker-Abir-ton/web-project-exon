@@ -1,3 +1,11 @@
+<?php 
+	session_start();
+	require("dbcnct.php");
+	if (isset($_SESSION['exon']) && $_SESSION['exon']==1)
+		$user=1;
+	else
+		$user=0;
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,8 +35,16 @@
 				</div>
 			</div>
 			<div id="aform" class="bcolor">
-				<h1 class="bcolor" id="sincl">Sign up using your email address</h1>
-				<form action="" method="" class="bcolor">
+				<h1 class="bcolor" id="sincl">
+					<?php
+						if (isset($_REQUEST['same'])&& $_REQUEST['same']=="samemail") {
+							echo nl2br("!!!! Email address alrady in use !!!!\nUse another one.");
+						}
+						else
+							echo "Sign up using your email address";
+					  ?>
+				</h1>
+				<form action="alrady-reg.php ?from=adduser" method="post" class="bcolor">
 					<label for='mail' name='mail'><b>Email Address:</b></label><br>
 					<input type="email" name="mail" >
 					<br>
@@ -57,7 +73,7 @@
 					<br>
   					<input type="radio" id="female" name="gender" value="female">
  					<label class="bcolor" for="female">..Womenswear.. </label>
-  					<input type="radio" id="other" name="gender" value="other">
+  					<input type="radio" id="other" name="gender" value="male">
  					<label class="bcolor" for="other">..Menswear.. </label>
  					<br>
 

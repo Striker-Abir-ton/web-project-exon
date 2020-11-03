@@ -1,3 +1,11 @@
+<?php 
+	session_start();
+	require("dbcnct.php");
+	if (isset($_SESSION['exon']) && $_SESSION['exon']==1)
+		$user=1;
+	else
+		$user=0;
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,8 +36,43 @@
 				</div>
 			</div>
 			<div id="aform" class="bcolor">
-				<h1 class="bcolor" id="sincl">Sign In using your email address</h1>
-				<form action="exon.php" method="" class="bcolor">
+
+				<h1 class="bcolor" id="sincl">
+				<!-- add user start -->
+				<?php  
+					if (isset($_REQUEST['from'])&& $_REQUEST['from']=="adduser") {
+
+						//insert user 
+						$email=mysqli_real_escape_string($con,$_REQUEST['mail']);
+						$fname=mysqli_real_escape_string($con,$_REQUEST['fname']);
+						$lname=mysqli_real_escape_string($con,$_REQUEST['lname']);
+						$phone=mysqli_real_escape_string($con,$_REQUEST['phn']);
+						$password=mysqli_real_escape_string($con,$_REQUEST['pass']);
+						$dob=mysqli_real_escape_string($con,$_REQUEST['dob']);
+						$interst=mysqli_real_escape_string($con,$_REQUEST['gender']);
+
+						$querymatch="select * from users where email='{$email}'";
+						$resultmatch= mysqli_query($con,$querymatch);
+						$row1=mysqli_num_rows($resultmatch);
+
+						if ($row1>0) {
+							 $same="samemail";
+							header('Location:signup.php ?same=samemail');
+						}
+						else{
+							$query="INSERT INTO users VALUES (NULL,'$email','$fname','$lname','$phone','$password','$dob','$interst')";
+							$result=mysqli_query($con,$query);
+							if ($result) {
+								echo "Thanks for joining.. Now log in";
+							}	
+						}
+					}
+					else
+					echo 'Sign In using your email address';
+				?>	
+				<!-- add user end -->
+				</h1>
+				<form action="exon.php" method="post" class="bcolor">
 					<label for='mail' name='mail'><b>Email Address:</b></label><br>
 					<input type="email" name="mail" >
 					<br>
