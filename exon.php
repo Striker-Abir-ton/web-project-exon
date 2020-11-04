@@ -61,7 +61,7 @@
 					<span id="bars" onclick="opennav()"><i class="fa fa-bars fa-2x"></i></span>
 					
 					<div id="logo" class="inline">
-						<a href="exon.php">
+						<a href="exon.php ?login=in">
             				<div id="logoimg">EXON</div>
           				</a>
 					</div>
