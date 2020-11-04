@@ -62,8 +62,14 @@
 							}	
 						}
 					}
-					else
-					echo 'Sign In using your email address';
+					else{
+						if (isset($_REQUEST['loginagain'])&& $_REQUEST['loginagain']=="again") {
+							echo  nl2br("!!!!Email or Password is Wrong!!!!\n If you registerd then <u>Login</u>.. Otherwise <u>Register</u> first..");
+						}
+						else
+							echo 'Sign In using your email address';
+					}
+
 				?>	
 				<!-- add user end -->
 				</h1>

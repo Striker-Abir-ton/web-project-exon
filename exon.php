@@ -190,12 +190,16 @@
 																		$_SESSION['password']=$row[5];
 																		$_SESSION['dob']=$row[6];
 																		$_SESSION['interst']=$row[7];
-
-																	#	echo "HI.{$row[2]}&nbsp;&nbsp;&nbsp;&nbsp,&nbsp;&nbsp;";
-
+																		
+																		
+																		#echo "HI.{$row[2]}&nbsp;&nbsp;&nbsp;&nbsp,&nbsp;&nbsp;";
+																		
 																	}
 
-																	else echo "<a href='signup.php'>login or register first</a>";
+																	else {
+																		header('Location:alrady-reg.php ?loginagain=again');
+																		
+																	}
 
 																}
 																if (isset($_SESSION['user']) && $_SESSION['user']==1)
@@ -207,6 +211,7 @@
 
 
 															}
+
 															if ($user==1) {
 																
 																echo "<a href='exon.php ?logout=out'>Log Out</a>";
