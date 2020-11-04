@@ -61,7 +61,7 @@
 					<span id="bars" onclick="opennav()"><i class="fa fa-bars fa-2x"></i></span>
 					
 					<div id="logo" class="inline">
-						<a href="exon.php ?login=in">
+						<a href="exon.php">
             				<div id="logoimg">EXON</div>
           				</a>
 					</div>
@@ -124,7 +124,7 @@
 														  		$_SESSION['user']=0;
 														  		if (isset($_SESSION['user']) && $_SESSION['user']==0)
 																		$user=0;
-														  		echo "<a href='alrady-reg.php'>Sign In</a>";
+														  		
 														  		
 														  	}
 														  	
@@ -168,6 +168,10 @@
 															if ($user==1) {
 																
 																echo "<a href='exon.php ?logout=out'>Log Out</a>";
+															}
+															if ($user==0) {
+																
+																echo "<a href='alrady-reg.php'>Sign In</a>";
 															}
 
 															
