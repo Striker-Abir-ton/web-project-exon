@@ -1,10 +1,7 @@
 <?php 
-	session_start();
+
 	require("dbcnct.php");
-	if (isset($_SESSION['exon']) && $_SESSION['exon']==1)
-		$user=1;
-	else
-		$user=0;
+
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,6 +41,7 @@
 							echo "Sign up using your email address";
 					  ?>
 				</h1>
+
 				<form action="alrady-reg.php ?from=adduser" method="post" class="bcolor">
 					<label for='mail' name='mail'><b>Email Address:</b></label><br>
 					<input type="email" name="mail" >

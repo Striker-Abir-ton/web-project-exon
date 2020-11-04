@@ -1,10 +1,5 @@
 <?php 
-	session_start();
 	require("dbcnct.php");
-	if (isset($_SESSION['exon']) && $_SESSION['exon']==1)
-		$user=1;
-	else
-		$user=0;
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,7 +67,17 @@
 				?>	
 				<!-- add user end -->
 				</h1>
-				<form action="exon.php" method="post" class="bcolor">
+
+				<!-- login start -->
+				<?php
+					if (isset($_SESSION['user'])&& $_SESSION['user']==1) {
+						echo "alrady login";
+					}
+					 if (!isset($_SESSION['user'])) {
+					}
+
+				  ?>
+				<form action="exon.php ?login=in" method="post" class="bcolor">
 					<label for='mail' name='mail'><b>Email Address:</b></label><br>
 					<input type="email" name="mail" >
 					<br>

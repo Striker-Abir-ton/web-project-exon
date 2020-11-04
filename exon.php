@@ -1,3 +1,7 @@
+<?php 
+	require("dbcnct.php");
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -108,7 +112,70 @@
 										<ul>
 											<li>
 												<div id="signin">
-													<a href="signup.php"><u>Sign In</u></a>
+													<u>
+														<!-- user login -->
+														<?php
+															
+
+															# <!--logout start-->
+														  
+														  	if (isset($_REQUEST['logout'])&& $_REQUEST['logout']=="out") {
+														  		session_destroy();
+														  		$_SESSION['user']=0;
+														  		if (isset($_SESSION['user']) && $_SESSION['user']==0)
+																		$user=0;
+														  		echo "<a href='alrady-reg.php'>Sign In</a>";
+														  		
+														  	}
+														  	
+
+
+														   
+															if (!$user) {
+																if (isset($_REQUEST['login'])&& $_REQUEST['login']=='in') {
+																	$email=$_REQUEST['mail'];
+																	$password=$_REQUEST['pass'];
+																	$query="select * from users where email='$email' and password='$password'";
+																	$result1=mysqli_query($con,$query);
+																	if (mysqli_num_rows($result1)==1) {
+																		$row=mysqli_fetch_array($result1);
+
+																		$_SESSION['user']=1;
+																		$_SESSION['email']=$row[1];
+																		$_SESSION['fname']=$row[2];
+																		$_SESSION['lname']=$row[3];
+																		$_SESSION['phone']=$row[4];
+																		$_SESSION['password']=$row[5];
+																		$_SESSION['dob']=$row[6];
+																		$_SESSION['interst']=$row[7];
+
+																		echo "HI.{$row[2]}&nbsp;&nbsp;&nbsp;&nbsp,&nbsp;&nbsp;";
+
+																	}
+
+																	else echo "<a href='signup.php'>login or register first</a>";
+
+																}
+																if (isset($_SESSION['user']) && $_SESSION['user']==1)
+																		$user=1;
+																else
+																		{$user=0;}
+																
+															
+
+
+															}
+															if ($user==1) {
+																
+																echo "<a href='exon.php ?logout=out'>Log Out</a>";
+															}
+
+															
+
+														  ?>
+
+														  <!-- end user login -->
+													</u>
 												</div>
 											</li>
 											<li>
