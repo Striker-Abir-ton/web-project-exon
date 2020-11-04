@@ -2,7 +2,7 @@
 
  <?php 
 	session_start();
-	$con= mysqli_connect('localhost','root','','projectprac');
+	$con= mysqli_connect('localhost','root','','exon');
 		if (!$con) {
 		echo "error conneting database";
 		}
