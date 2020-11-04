@@ -1,10 +1,14 @@
+<?php 
+	require("dbcnct.php");
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Saved Item</title>
+	<title>Exon Export</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -14,7 +18,7 @@
 		<nav id="header-nav">
 			<div>
 				<div id="bar1">
-					...
+					<b>ASSALAMUALAIKUM</b>
 				</div><!--end of bar1-->
 				<div id="bar2" class="flex">
 					<div id="barmenu" class="over">
@@ -55,8 +59,9 @@
 						
 					</div>
 					<span id="bars" onclick="opennav()"><i class="fa fa-bars fa-2x"></i></span>
+					
 					<div id="logo" class="inline">
-						<a href="exon.php">
+						<a href="exon.php ">
             				<div id="logoimg">EXON</div>
           				</a>
 					</div>
@@ -107,7 +112,36 @@
 										<ul>
 											<li>
 												<div id="signin">
-													<a href="signup.php"><u>Sign In</u></a>
+													<u>	
+														<!-- user login -->
+														<?php
+															
+
+															# <!--logout start-->
+														  
+														  	if (isset($_REQUEST['logout'])&& $_REQUEST['logout']=="out") {
+														  		session_destroy();
+														  		$_SESSION['user']=0;
+														  		if (isset($_SESSION['user']) && $_SESSION['user']==0)
+																		$user=0;
+														  		
+														  		
+														  	}
+														  	# logout end
+														  	
+															if ($user==1) {
+																
+																echo "<a href='exon.php ?logout=out'>Log Out</a>";
+															}
+
+															if ($user==0) {
+																
+																echo "<a href='alrady-reg.php'>Sign In</a>";
+															}
+
+														  ?>
+														  <!-- end user login -->
+													</u>	
 												</div>
 											</li>
 											<li>
@@ -136,7 +170,7 @@
 							<li class='divfor3ta'>
 								<div  id='dropdown-account'>
 									<button id='usericonbtn' type="button">
-									<a href="saved-item.php"><i class="fa fa-heart-o fa-2x"></i></a>
+									<a href="saved-item.php" target="_blank"><i class="fa fa-heart-o fa-2x"></i></a>
 									</button><!--end usericonbtn-->
 								</div><!--end dropdown-account-->
 							</li>
@@ -145,7 +179,7 @@
 							<li class='divfor3ta'>
 								<div  id='dropdown-account'>
 									<button id='usericonbtn' type="button">
-										<a  href="wishlist.php" target="_blank"><i class="fa fa-shopping-bag fa-2x"></i></a>
+										<a href="wishlist.php" target="_blank"><i class="fa fa-shopping-bag fa-2x"></i></a>
 									</button><!--end usericonbtn-->
 								</div><!--end dropdown-account-->
 							</li>
@@ -173,14 +207,16 @@
 					</div>
 				</div><!--end of bar3-->
 				<div id="bar4">
-					---
+					<b>No Discount Available!!!!!</b>
 				</div><!--end of bar4-->
+					
+	
+				
 			</div>	<!-- end-->
 		</nav> <!--Header nav end-->
 	</header>
 
-
-	<footer>
+		<footer>
 		<div>
 			<div id="foot1">
 				<div id="Hours"class="row">
@@ -220,6 +256,7 @@
 			</div> <!--foot2-->
 		</div>
 	</footer>
+
 
 	<script type="text/javascript" src="script.js"></script>
 </body>

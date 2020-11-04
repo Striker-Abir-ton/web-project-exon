@@ -1,3 +1,6 @@
+<?php 
+	require("dbcnct.php");
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +18,7 @@
 		<nav id="header-nav">
 			<div>
 				<div id="bar1">
-					...
+					<b>ASSALAMUALAIKUM</b>
 				</div><!--end of bar1-->
 				<div id="bar2" class="flex">
 					<div id="barmenu" class="over">
@@ -108,7 +111,37 @@
 										<ul>
 											<li>
 												<div id="signin">
-													<a href="signup.php"><u>Sign In</u></a>
+													
+													<u>	
+														<!-- user login -->
+														<?php
+															
+
+															# <!--logout start-->
+														  
+														  	if (isset($_REQUEST['logout'])&& $_REQUEST['logout']=="out") {
+														  		session_destroy();
+														  		$_SESSION['user']=0;
+														  		if (isset($_SESSION['user']) && $_SESSION['user']==0)
+																		$user=0;
+														  		
+														  		
+														  	}
+														  	# logout end
+														  	
+															if ($user==1) {
+																
+																echo "<a href='exon.php ?logout=out'>Log Out</a>";
+															}
+
+															if ($user==0) {
+																
+																echo "<a href='alrady-reg.php'>Sign In</a>";
+															}
+
+														  ?>
+														  <!-- end user login -->
+													</u>	  
 												</div>
 											</li>
 											<li>
@@ -170,7 +203,7 @@
 					</div>
 				</div><!--end of bar3-->
 				<div id="bar4">
-					---
+					<b>No Discount Available!!!!!</b>
 				</div><!--end of bar4-->
 			</div>	<!-- end-->
 		</nav> <!--Header nav end-->

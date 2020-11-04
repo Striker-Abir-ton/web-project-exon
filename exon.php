@@ -1,5 +1,6 @@
 <?php 
 	require("dbcnct.php");
+
  ?>
 
 <!DOCTYPE html>
@@ -18,7 +19,7 @@
 		<nav id="header-nav">
 			<div>
 				<div id="bar1">
-					...
+					<b>ASSALAMUALAIKUM</b>
 				</div><!--end of bar1-->
 				<div id="bar2" class="flex">
 					<div id="barmenu" class="over">
@@ -29,10 +30,23 @@
 						 <div class="over-content">
 						  	<div id="mw2" class="flex">
 						  		<div class="mw">
-						  			<a href="men.php"><b>MEN</b></a>
+						  			<?php 
+										if ($user==1) {
+											echo "<a href='men.php'><b>MEN</b></a>";
+										}
+										else
+											echo "<a href='alrady-reg.php'><b>MEN</b></a>";
+									 ?>
 						  		</div>
 						  		<div class="mw">
-						  			<a href="women.php"><b>WOMEN</b></a>
+						  			<?php 
+										if ($user==1) {
+											echo "<a href='women.php'><b>WOMEN</b></a>";
+										}
+										else
+											echo "<a href='alrady-reg.php'><b>WOMEN</b></a>";
+									 ?>
+						  			
 						  		</div>
     							
 						  	</div>
@@ -45,11 +59,23 @@
  						    	</div>
  						    	<br>
  						    	<div class="barsop">
- 						    		<a href="newin.php"><b>New in</b></a>
+ 						    		<?php 
+										if ($user==1) {
+											echo "<a href='newin.php'><b>New in</b></a>";
+										}
+										else
+											echo "<a href='alrady-reg.php'><b>New in</b></a>";
+									?>
  						    	</div>
  						    	<br>
  						    	<div class="barsop">
- 						    		<a href="brands.php"><b>Brands</b></a>
+ 						    		<?php 
+										if ($user==1) {
+											echo "<a href='brands.php'><b>Brands</b></a>";
+										}
+										else
+											echo "<a href='alrady-reg.php'><b>Brands</b></a>";
+									?>
  						    	</div>
     							
  						    </div>
@@ -61,7 +87,7 @@
 					<span id="bars" onclick="opennav()"><i class="fa fa-bars fa-2x"></i></span>
 					
 					<div id="logo" class="inline">
-						<a href="exon.php">
+						<a href="exon.php ">
             				<div id="logoimg">EXON</div>
           				</a>
 					</div>
@@ -69,12 +95,25 @@
 						<ul id="bar2-ul">
 							<li>
 								<div>
-									<a href="women.php">WOMEN</a>
+									<?php 
+										if ($user==1) {
+											echo "<a href='women.php'>WOMEN</a>";
+										}
+										else
+											echo "<a href='alrady-reg.php'>WOMEN</a>";
+									 ?>
+									
 								</div>
 							</li>
 							<li>
 								<div>
-									<a href="men.php">	MEN</a>
+									<?php 
+										if ($user==1) {
+											echo "<a href='men.php'>MEN</a>";
+										}
+										else
+											echo "<a href='alrady-reg.php'>MEN</a>";
+									 ?>
 								</div>
 							</li>
 						</ul>
@@ -113,6 +152,8 @@
 											<li>
 												<div id="signin">
 													<u>
+														
+														
 														<!-- user login -->
 														<?php
 															
@@ -124,7 +165,7 @@
 														  		$_SESSION['user']=0;
 														  		if (isset($_SESSION['user']) && $_SESSION['user']==0)
 																		$user=0;
-														  		
+														  		header('Location:exon.php');
 														  		
 														  	}
 														  	
@@ -133,6 +174,7 @@
 														   
 															if (!$user) {
 																if (isset($_REQUEST['login'])&& $_REQUEST['login']=='in') {
+																	header('Location:exon.php');
 																	$email=$_REQUEST['mail'];
 																	$password=$_REQUEST['pass'];
 																	$query="select * from users where email='$email' and password='$password'";
@@ -149,7 +191,7 @@
 																		$_SESSION['dob']=$row[6];
 																		$_SESSION['interst']=$row[7];
 
-																		echo "HI.{$row[2]}&nbsp;&nbsp;&nbsp;&nbsp,&nbsp;&nbsp;";
+																	#	echo "HI.{$row[2]}&nbsp;&nbsp;&nbsp;&nbsp,&nbsp;&nbsp;";
 
 																	}
 
@@ -169,6 +211,7 @@
 																
 																echo "<a href='exon.php ?logout=out'>Log Out</a>";
 															}
+
 															if ($user==0) {
 																
 																echo "<a href='alrady-reg.php'>Sign In</a>";
@@ -184,15 +227,26 @@
 											</li>
 											<li>
 												<div class="dropdown-li">
-													<a href="myaccount.php">
-														My Account
-													</a>
+													<?php 
+														if ($user==1) {
+															echo "<a href='myaccount.php'>My Account</a>";
+														}
+														else
+															echo "<a href='alrady-reg.php'>My Account</a>";
+													 ?>
+													
 												</div>
 											</li>
 											<li>
 												<div class="dropdown-li">
-													<a href="myorder.php">My Orders
-													</a>
+													<?php 
+														if ($user==1) {
+															echo "<a href='myorder.php'>My Orders</a>";
+														}
+														else
+															echo "<a href='alrady-reg.php'>My Orders</a>";
+													 ?>
+													
 												</div>
 											</li>
 										</ul>
@@ -208,7 +262,14 @@
 							<li class='divfor3ta'>
 								<div  id='dropdown-account'>
 									<button id='usericonbtn' type="button">
-									<a href="saved-item.php" target="_blank"><i class="fa fa-heart-o fa-2x"></i></a>
+									<?php 
+										if ($user==1) {
+											echo "<a href='saved-item.php' target='_blank'><i class='fa fa-heart-o fa-2x'></i></a>";
+										}
+										else
+											echo "<a href='alrady-reg.php'><i class='fa fa-heart-o fa-2x'></i></a>";
+									?>
+									
 									</button><!--end usericonbtn-->
 								</div><!--end dropdown-account-->
 							</li>
@@ -217,7 +278,13 @@
 							<li class='divfor3ta'>
 								<div  id='dropdown-account'>
 									<button id='usericonbtn' type="button">
-										<a href="wishlist.php" target="_blank"><i class="fa fa-shopping-bag fa-2x"></i></a>
+										<?php 
+										if ($user==1) {
+											echo "<a href='wishlist.php' target='_blank'><i class='fa fa-shopping-bag fa-2x'></i></a>";
+										}
+										else
+											echo "<a href='alrady-reg.php'><i class='fa fa-shopping-bag fa-2x'></i></a>";
+										?>
 									</button><!--end usericonbtn-->
 								</div><!--end dropdown-account-->
 							</li>
@@ -233,19 +300,33 @@
 						<ul class="flex">
 							<li id="b3">
 								<div class="b3op">
-									<a href="newin.php">New in</a>
+									<?php 
+										if ($user==1) {
+											echo "<a href='newin.php'>New in</a>";
+										}
+										else
+											echo "<a href='alrady-reg.php'>New in</a>";
+									?>
+									
 								</div>
 							</li>
 							<li id="b3">
 								<div class="b3op">
-									<a href="brands.php">Brands</a>
+									<?php 
+										if ($user==1) {
+											echo "<a href='brands.php'>Brands</a>";
+										}
+										else
+											echo "<a href='alrady-reg.php'>Brands</a>";
+									?>
+									
 								</div>
 							</li>
 						</ul>
 					</div>
 				</div><!--end of bar3-->
 				<div id="bar4">
-					---
+					<b>No Discount Available!!!!!</b>
 				</div><!--end of bar4-->
 					
 	

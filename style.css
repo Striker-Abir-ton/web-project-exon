@@ -21,6 +21,9 @@
 	height: 30px;
 	background-color: #f8f8f8;
 	display: block;
+	text-align: center;
+	padding-top: 5px;
+	letter-spacing: 2px;
 }
 
 /* start bar2 */
@@ -78,6 +81,7 @@
 	padding-bottom: 20px;
 	border-right: 1px solid #525050;
 }
+
 #bar2-ul li div>a:hover{
 	background-color: #444242;
 }
@@ -276,11 +280,14 @@ ul #b3 a:hover{
 /*start bar4 */
 
 #bar4{
-	display: flex;
+	display: block;
 	height: 50px;
 	background-color: rgb(255, 224, 136);
 	padding-right: 108.6px;
 	padding-left: 108.6px;
+	text-align: center;
+	padding-top: 15px;
+	letter-spacing: 2px;
 }
 /*end bar4*/
 
@@ -359,11 +366,20 @@ ul #b3 a:hover{
 	#bar1,#bar2-ul,#bar3,#srcbtnsml{
 		display: none;
 	}
-	#bar1,#bar2,#bar3,#bar4{
+	#bar1,#bar2,#bar3{
 		padding: 0;
 	}
 	#foot1{
 		padding: 0px 40px;
+	}
+	.dropdown-content{
+	
+	height: 150px;
+	width: 150px;
+    }
+    #signin{
+	width: 148px;
+	height: 50px;
 	}
 }
 
@@ -372,7 +388,7 @@ ul #b3 a:hover{
 	#bar1,#bar2-ul,#bar3,#searchdiv{
 		display: none;
 	}
-	#bar1,#bar2,#bar3,#bar4{
+	#bar1,#bar2,#bar3{
 		padding: 0;
 	}
 	#foot1{
@@ -387,6 +403,15 @@ ul #b3 a:hover{
 	#srcbtnsml{
 		padding-top: 12px;
 		padding-right: 8px;
+	}
+	.dropdown-content{
+	
+	height: 150px;
+	width: 148px;
+    }
+    #signin{
+	width: 146px;
+	height: 50px;
 	}
 }
 @media (max-width: 660px) {
