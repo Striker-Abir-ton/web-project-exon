@@ -37,8 +37,13 @@
 						if (isset($_REQUEST['same'])&& $_REQUEST['same']=="samemail") {
 							echo nl2br("!!!! Email address alrady in use !!!!\nUse another one.");
 						}
-						else
-							echo "Sign up using your email address";
+						else{
+								if (isset($_REQUEST['nopass'])&& $_REQUEST['nopass']=="npass") {
+										echo nl2br("!!!! Enter Password !!!!");
+								}
+								else
+									echo "Sign up using your email address";
+							}
 					  ?>
 				</h1>
 
@@ -69,9 +74,9 @@
   					<br>
   					<p><b class="bcolor">mostly intersted in:</b></p>
 					<br>
-  					<input type="radio" id="female" name="gender" value="female">
+  					<input type="radio" id="female" name="gender" value="Womenswear">
  					<label class="bcolor" for="female">..Womenswear.. </label>
-  					<input type="radio" id="other" name="gender" value="male">
+  					<input type="radio" id="other" name="gender" value="Menswear">
  					<label class="bcolor" for="other">..Menswear.. </label>
  					<br>
 

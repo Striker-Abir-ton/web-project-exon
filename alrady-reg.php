@@ -55,8 +55,13 @@
 							header('Location:signup.php ?same=samemail');
 						}
 						else{
-							$query="INSERT INTO users VALUES (NULL,'$email','$fname','$lname','$phone','$password','$dob','$interst')";
-							$result=mysqli_query($con,$query);
+							if ($password==NULL) {
+								header('Location:signup.php ?nopass=npass');
+							}
+							else{
+									$query="INSERT INTO users VALUES (NULL,'$email','$fname','$lname','$phone','$password','$dob','$interst')";
+									$result=mysqli_query($con,$query);
+								}
 							if ($result) {
 								echo "Thanks for joining.. Now log in";
 							}	
@@ -105,10 +110,6 @@
 	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
-
-
-
-
 
 
 

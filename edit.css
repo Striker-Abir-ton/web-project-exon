@@ -1,0 +1,44 @@
+#cntnt2{	
+
+	padding: 40px 200px 20px 200px;
+
+}
+#account_content2{
+	
+	background-color: #fff; 
+	padding: 30px;
+	border: 2px solid black;
+}
+
+#account_content2 p{
+	font-size: 20px;
+}
+.btn{
+	float: right;
+}
+
+.btn a{
+	text-decoration: none;
+	color: black;
+}
+
+
+
+/********** Small devices only **********/
+@media (min-width: 920px) and (max-width: 991px) {
+	#cntnt{	
+		padding: 40px 180px 20px 180px;
+	}
+}
+@media (min-width: 778px) and (max-width: 919px) {
+	#cntnt{	
+		padding: 40px 100px 20px 100px;
+	}
+}
+@media (min-width: 468px) and (max-width: 777px) {
+	#cntnt{	
+		padding: 40px 10px 20px 10px;
+	}
+}
+
+

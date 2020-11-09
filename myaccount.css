@@ -1,0 +1,59 @@
+#cntnt{	
+
+	padding: 40px 250px 20px 250px;
+
+}
+#account_content{
+	text-align: center;
+	background-color: #fff; 
+	padding: 30px;
+	border: 2px solid black;
+}
+
+#account_content p{
+	font-size: 20px;
+}
+
+#btno{
+	padding-top: 20px;
+}
+#btno a{
+	text-decoration: none;
+	border: 2px solid black;
+	padding: 10px;
+	margin-right: 10px;
+	color: black;
+}
+#dlt{
+	background-color: #da7676;  
+}
+#edit{
+	background-color: #73b373;
+}
+#dlt:hover{
+	background-color: #e9c4c4;  
+}
+#edit:hover{
+	background-color:#b7e7b7;
+}
+
+
+
+/********** Small devices only **********/
+@media (min-width: 920px) and (max-width: 991px) {
+	#cntnt{	
+		padding: 40px 180px 20px 180px;
+	}
+}
+@media (min-width: 778px) and (max-width: 919px) {
+	#cntnt{	
+		padding: 40px 100px 20px 100px;
+	}
+}
+@media (min-width: 468px) and (max-width: 777px) {
+	#cntnt{	
+		padding: 40px 10px 20px 10px;
+	}
+}
+
+

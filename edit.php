@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Exon|MY Account</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" type="text/css" href="myaccount.css">
+	<link rel="stylesheet" type="text/css" href="edit.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -214,21 +214,39 @@
 			</div>	<!-- end-->
 		</nav> <!--Header nav end-->
 	</header>
-<div id='cntnt'>
-	<div id='account_content'>
+<div id='cntnt2'>
+	<div id='account_content2'>
 		<p> <b>Email Address : </b> 
 			<?php  
 	
 			$email=$_SESSION['email'];
 			echo "$email";
+			echo "<button class='btn' ><a href='edit.php ?newmail=nmail'>Change</a></button>";
+			if (isset($_REQUEST['newmail'])&& $_REQUEST['newmail']=="nmail") {
+				
 
+				echo "<br> <br><label for='O1' name='O1'><b>Email Address:</b></label>
+					<input type='email' name='O1' >
+					<button  class='btn' ><a href='editquery.php ?O1=o1'>Done</a></button>";
+					
+			}
 			?>
+
 		</p><br>
 		<p> <b>First Name : </b> 
 			<?php  
 	
 			$fname=$_SESSION['fname'];
 			echo "$fname";
+			echo "<button class='btn' ><a href='edit.php ?newname=nname'>Change</a></button>";
+			if (isset($_REQUEST['newname'])&& $_REQUEST['newname']=="nname") {
+				
+
+				echo "<br> <br><label for='fname' name='nfname'><b>First Name:</b></label><br>
+					<input type='text' name='nfname' > <br>
+					<button  class='btn' ><a href='editquery.php ?O2=o2'>Done</a></button>";
+					
+			}
 
 			?>
 		</p><br>
@@ -264,12 +282,15 @@
 
 			?>
 		</p><br>
-		<div id='btno'>
-			<?php
-				echo "<a id='dlt' href='delete.php ?delete=remove'><b>Delete Account</b></a>";
-				echo "<a id='edit' href='edit.php ?edit=replace'><b>Edit Account</b></a>";
+		<p> <b>Interst : </b> 
+			<?php  
+	
+			$interst=$_SESSION['interst'];
+			echo "$interst";
+
 			?>
-		</div>
+		</p><br>
+
 	</div>
 </div>
 
