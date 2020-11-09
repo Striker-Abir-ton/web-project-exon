@@ -214,6 +214,7 @@
 			</div>	<!-- end-->
 		</nav> <!--Header nav end-->
 	</header>
+	<form action="editquery.php ?O0=o0" method="post" >
 <div id='cntnt2'>
 	<div id='account_content2'>
 		<p> <b>Email Address : </b> 
@@ -225,11 +226,11 @@
 			if (isset($_REQUEST['newmail'])&& $_REQUEST['newmail']=="nmail") {
 				
 
-				echo "<br> <br><label for='O1' name='O1'><b>Email Address:</b></label>
-					<input type='email' name='O1' >
-					<button  class='btn' ><a href='editquery.php ?O1=o1'>Done</a></button>";
+				echo "<br> <br><label for='mail' name='mail'>New Email Address :</label>
+					<input type='email' name='mail' >
+					<input id='submit'type='submit' name='submit' value='Done'>";
 					
-			}
+				}
 			?>
 
 		</p><br>
@@ -242,11 +243,11 @@
 			if (isset($_REQUEST['newname'])&& $_REQUEST['newname']=="nname") {
 				
 
-				echo "<br> <br><label for='fname' name='nfname'><b>First Name:</b></label><br>
-					<input type='text' name='nfname' > <br>
-					<button  class='btn' ><a href='editquery.php ?O2=o2'>Done</a></button>";
+				echo "<br> <br><label for='fname' name='fname'>New First Name :</label>
+					<input type='text' name='fname' >
+					<input id='submit'type='submit' name='submit' value='Done'>";
 					
-			}
+				}
 
 			?>
 		</p><br>
@@ -255,6 +256,15 @@
 	
 			$lname=$_SESSION['lname'];
 			echo "$lname";
+			echo "<button class='btn' ><a href='edit.php ?newlname=nname'>Change</a></button>";
+			if (isset($_REQUEST['newlname'])&& $_REQUEST['newlname']=="nname") {
+				
+
+				echo "<br> <br><label for='lname' name='lname'>New Last Name :</label>
+					<input type='text' name='lname' >
+					<input id='submit'type='submit' name='submit' value='Done'>";
+					
+				}
 
 			?>
 		</p><br>
@@ -263,6 +273,15 @@
 	
 			$phone=$_SESSION['phone'];
 			echo "$phone";
+			echo "<button class='btn' ><a href='edit.php ?newphn=nname'>Change</a></button>";
+			if (isset($_REQUEST['newphn'])&& $_REQUEST['newphn']=="nname") {
+				
+
+				echo "<br> <br><label for='Phn' name='phn'>New Phone:</label>
+					<input type='tel' name='phn'>
+					<input id='submit'type='submit' name='submit' value='Done'>";
+					
+				}
 
 			?>
 		</p><br>
@@ -271,6 +290,17 @@
 	
 			$password=$_SESSION['password'];
 			echo "$password";
+			echo "<button class='btn' ><a href='edit.php ?newpass=nname'>Change</a></button>";
+			if (isset($_REQUEST['newpass'])&& $_REQUEST['newpass']=="nname") {
+				
+
+				echo "<br> <br><label for='pass' name='pass'>New Password : </label>
+					<input type='password' name='pass' id='myInput'>
+					<input id='submit'type='submit' name='submit' value='Done'>
+					<br><input type='checkbox' onclick='showpass()'><span>Show Password</span>";
+					
+				}
+
 
 			?>
 		</p><br>
@@ -279,6 +309,17 @@
 	
 			$dob=$_SESSION['dob'];
 			echo "$dob";
+			echo "<button class='btn' ><a href='edit.php ?newdob=nname'>Change</a></button>";
+			if (isset($_REQUEST['newdob'])&& $_REQUEST['newdob']=="nname") {
+				
+
+				echo "<br> <br><label for='dob'>New Date of Birth : </label>
+  					<input type='date' name='dob'>
+					<input id='submit'type='submit' name='submit' value='Done'>
+					
+					";
+					
+				}
 
 			?>
 		</p><br>
@@ -287,12 +328,28 @@
 	
 			$interst=$_SESSION['interst'];
 			echo "$interst";
+			echo "<button class='btn' ><a href='edit.php ?newinterst=nname'>Change</a></button>";
+			if (isset($_REQUEST['newinterst'])&& $_REQUEST['newinterst']=="nname") {
+				
+
+				echo "<br> <br><p>Mostly Intersted In:</b></p>
+					<br>
+  					<input type='radio' id='female' name='gender' value='Womenswear'>
+ 					<label for='female'>..Womenswear.. </label>
+  					<input type='radio' id='other' name='gender' value='Menswear'>
+ 					<label for='other'>..Menswear.. </label>
+					<input id='submit'type='submit' name='submit' value='Done'>
+					
+					";
+					
+				}
 
 			?>
 		</p><br>
 
 	</div>
 </div>
+</form>
 
 
 

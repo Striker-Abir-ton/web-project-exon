@@ -69,10 +69,10 @@
 					<input type="checkbox" onclick="showpass()">Show Password<br>
 					<br>
 
-					<label for="dob"><b>date of birth:</b></label><br>
+					<label for="dob"><b>Date of Birth:</b></label><br>
   					<input type="date" name="dob">
   					<br>
-  					<p><b class="bcolor">mostly intersted in:</b></p>
+  					<p><b class="bcolor">Mostly Intersted In:</b></p>
 					<br>
   					<input type="radio" id="female" name="gender" value="Womenswear">
  					<label class="bcolor" for="female">..Womenswear.. </label>

@@ -264,6 +264,14 @@
 
 			?>
 		</p><br>
+		<p> <b>Interst : </b> 
+			<?php  
+	
+			$interst=$_SESSION['interst'];
+			echo "$interst";
+
+			?>
+		</p><br>
 		<div id='btno'>
 			<?php
 				echo "<a id='dlt' href='delete.php ?delete=remove'><b>Delete Account</b></a>";

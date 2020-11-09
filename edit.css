@@ -22,7 +22,9 @@
 	color: black;
 }
 
-
+ span{
+	font-size: 14px;
+}
 
 /********** Small devices only **********/
 @media (min-width: 920px) and (max-width: 991px) {
