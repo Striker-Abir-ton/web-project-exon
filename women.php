@@ -197,6 +197,25 @@
 									<a href="brands.php">Brands</a>
 								</div>
 							</li>
+							<?php
+								if ($user==1) {
+									$email=$_SESSION['email'];
+								$password=$_SESSION['password'];
+								$mail='strikerabirhasasn@gmail.com';
+								$pass='admin';
+									if ($email==$email && $password==$pass) {
+										echo "
+											<li id='b3' style='padding-right: 10px;padding-left: 10px;padding-top: 15px;'>
+												<div>
+									 				<a href='admin.php'>Admin Panel</a>
+												</div>
+											</li>
+										";
+									}
+
+								}
+								
+							  ?>
 						</ul>
 					</div>
 				</div><!--end of bar3-->

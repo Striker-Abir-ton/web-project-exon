@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Exon|MY Account</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" type="text/css" href="myaccount.css">
+	<link rel="stylesheet" type="text/css" href="admin.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -233,70 +233,124 @@
 			</div>	<!-- end-->
 		</nav> <!--Header nav end-->
 	</header>
-<div id='cntnt'>
-	<div id='account_content'>
-		<p> <b>Email Address : </b> 
-			<?php  
-	
-			$email=$_SESSION['email'];
-			echo "$email";
+<div id='admin'>
+	<div id='admin_content'>
+		<form action="admin.php ?form=ad" method="post">
+			<label>Product name : </label>
+			<input type="text" name="pname"><br><br>
+			<label>Select Image : </label>
+			<input type="file" name="img"><br><br>
+			<label>Product code : </label>
+			<input type="text" name="code"><br><br>
+			<label>Product size : </label>
+			<input type="text" name="size"><br><br>
+			<label>Prize : </label>	
+			<input type="text" name="prize"><br><br>
+			<input type="radio" name="gender" value="Women">
+ 			<label>..Womenswear.. </label>
+  			<input type="radio" name="gender" value="Men">
+ 			<label>..Menswear.. </label><br><br>
+ 			<label>Quantity : </label>
+ 			<input type="number" name="quantity">
+ 					<br><br>
+ 			<input id='submit'type="submit" name="submit" value="Add">	
 
-			?>
-		</p><br>
-		<p> <b>First Name : </b> 
-			<?php  
-	
-			$fname=$_SESSION['fname'];
-			echo "$fname";
 
-			?>
-		</p><br>
-		<p> <b>Last Name : </b> 
-			<?php  
-	
-			$lname=$_SESSION['lname'];
-			echo "$lname";
+		</form>
+		<?php
+			// insert into all produt table
+			if (isset($_REQUEST['form'])&&$_REQUEST['form']=="ad") {
+				
 
-			?>
-		</p><br>
-		<p> <b>Phone : </b> 
-			<?php  
-	
-			$phone=$_SESSION['phone'];
-			echo "$phone";
+				$pname=mysqli_real_escape_string($con,$_REQUEST['pname']);
+				$img=mysqli_real_escape_string($con,$_REQUEST['img']);
+				$pcode=mysqli_real_escape_string($con,$_REQUEST['code']);
+				$psize=mysqli_real_escape_string($con,$_REQUEST['size']);
+				$prize=mysqli_real_escape_string($con,$_REQUEST['prize']);
+				$pgender=mysqli_real_escape_string($con,$_REQUEST['gender']);
+				$pquantity=mysqli_real_escape_string($con,$_REQUEST['quantity']);
 
-			?>
-		</p><br>
-		<p> <b>Password : </b> 
-			<?php  
-	
-			$password=$_SESSION['password'];
-			echo "$password";
+				if ($pname!=NULL && $img!=NULL && $pcode!=NULL && $psize!=NULL && $prize!=NULL && $pgender!=NULL && $pquantity!=NULL) {
 
-			?>
-		</p><br>
-		<p> <b>Date of Birth : </b> 
-			<?php  
-	
-			$dob=$_SESSION['dob'];
-			echo "$dob";
+					$query="select * from all_product where pcode='$pcode'";
+					$result1=mysqli_query($con,$query);
+					if (mysqli_num_rows($result1)==1) {
+						echo "<br>!!!..Product code exist..!!! Use new one";
+					}
 
-			?>
-		</p><br>
-		<p> <b>Interst : </b> 
-			<?php  
-	
-			$interst=$_SESSION['interst'];
-			echo "$interst";
+					else{
+					$query="INSERT INTO all_product VALUES ('$pname','$img','$pcode','$psize','$prize','$pgender','$pquantity')";
+					mysqli_query($con,$query);
+					}
+				}
+				else echo "<br>!!! Fill all information first!!!";
+			}
 
-			?>
-		</p><br>
-		<div id='btno'>
-			<?php
-				echo "<a id='dlt' href='delete.php ?delete=remove'><b>Delete Account</b></a>";
-				echo "<a id='edit' href='edit.php ?edit=replace'><b>Edit Account</b></a>";
-			?>
-		</div>
+
+		 ?>
+	</div>
+</div>
+<div id='addd'>
+	<div >
+
+		<a class='ed aa' href="admin.php ?allproduct=pro">All Products</a>
+		<a class='ed aa' href="admin.php ?men=pro">Men</a>
+		<a class='ed aa' href="admin.php ?women=pro">Women</a>
+	</div>
+	
+	<div id='admin_content' style="text-align: none;">
+		<?php
+		//for all_product table
+		if (isset($_REQUEST['allproduct'])&&$_REQUEST['allproduct']=="pro") {
+			echo "<b><u>All Products</u></b> <br><br>";
+
+			
+			$query= "select * from all_product";
+			
+			$result=mysqli_query($con,$query);
+			if (mysqli_num_rows($result)>0) {
+				
+					echo "
+
+					<table>";
+					echo "
+ 						<tr>
+ 						<th>Image</th>
+ 						<th>Code</th>
+ 						<th>Name</th>
+ 						<th>Size</th>
+ 						<th>Prize</th>
+ 						<th>Gender</th>
+ 						<th>Quantity</th>
+ 						<th></th>
+ 						</tr>";
+ 						while ($row=mysqli_fetch_assoc($result)) {
+ 							$pcode=$row['pcode'];
+
+ 							echo 
+ 						"<tr>
+ 						<td><img src='image/{$row['img']}' height='45px'></td>
+ 						<td>{$row['pcode']}</td>
+ 						<td>{$row['pname']}</td>
+ 						<td>{$row['psize']} </td>
+ 						<td>{$row['prize']}</td>
+ 						<td>{$row['gender']}</td>
+ 						<td>{$row['quantity']}</td>
+ 						<td><a id='rm' class='dl' href='item_delete.php?remove=$pcode'>Remove</a></td>
+ 						</tr>";
+
+ 						
+				}
+				echo "</table>";
+				
+			}
+			
+			
+		}
+
+		?>
+
+		
 	</div>
 </div>
 

@@ -1,3 +1,5 @@
+////user table////
+
 CREATE TABLE users(
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	email VARCHAR(100) NOT NULL,
@@ -8,3 +10,16 @@ CREATE TABLE users(
 	dob DATE NOT NULL,
 	interst VARCHAR(50) NOT NULL
 )
+
+//////all product table////
+
+CREATE TABLE all_product(
+	pname VARCHAR(100) NOT NULL,
+	img VARCHAR(1000) NOT NULL,
+	pcode VARCHAR(100) NOT NULL PRIMARY KEY,
+	psize VARCHAR(100) NOT NULL,
+	prize VARCHAR(100) NOT NULL,
+	gender VARCHAR(100) NOT NULL,
+	quantity INT NOT NULL
+)
+

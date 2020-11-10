@@ -1,4 +1,4 @@
-<<!-- for delete account-->
+<!-- for delete account-->
 <?php 
 require("dbcnct.php");
 	if (isset($_REQUEST['delete'])&& $_REQUEST['delete']=="remove") {
@@ -9,4 +9,8 @@ require("dbcnct.php");
 		header('Location:alrady-reg.php');
 
 	}
+	
+		
+
+	
 ?>

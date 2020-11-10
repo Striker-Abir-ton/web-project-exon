@@ -1,0 +1,76 @@
+
+#admin{	
+
+	padding: 40px 200px 20px 200px;
+
+}
+#admin_content{
+	
+	background-color: #fff; 
+	padding: 30px;
+	border: 2px solid black;
+}
+label{
+	font-size: 18px;
+}
+input[type=text],input[type=number]{
+	height: 30px;
+	width: 170px;
+}
+input[type=file]{
+	color: blue;
+}
+
+#addd{
+	padding: 40px 200px 20px 200px;
+}
+
+#addd .aa{
+	text-decoration: none; ;
+	border: 2px solid black;
+	padding: 10px;
+	margin-right: 10px;
+	color: black;
+
+}
+
+.ed{
+	background-color: #73b373;
+
+}
+.dl{
+	background-color: #da7676;  
+}
+
+table{
+	width: 100%;
+	 border-collapse: collapse;
+
+}
+td,th{
+	  border: 1px solid #dddddd;
+  		text-align: center;
+  		padding: 8px;
+}
+table a{
+	text-decoration: none; ;
+	border: 1px solid black;
+	color: black;
+}
+
+
+@media (min-width: 920px) and (max-width: 991px) {
+	#admin, #addd{	
+		padding: 40px 180px 20px 180px;
+	}
+}
+@media (min-width: 778px) and (max-width: 919px) {
+	#admin, #addd{	
+		padding: 40px 100px 20px 100px;
+	}
+}
+@media (min-width: 468px) and (max-width: 777px) {
+	#admin , #addd{	
+		padding: 40px 10px 20px 10px;
+	}
+}
