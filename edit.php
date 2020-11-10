@@ -217,6 +217,11 @@
 	<form action="editquery.php ?O0=o0" method="post" >
 <div id='cntnt2'>
 	<div id='account_content2'>
+		<?php
+			if (isset($_REQUEST['samemail'])&& $_REQUEST['samemail']=="smail") {
+				echo "<b>!!!! Email address alrady in use !!!!Use another one.</b><br><br><br>" ;
+			}
+		  ?>
 		<p> <b>Email Address : </b> 
 			<?php  
 	
@@ -224,7 +229,6 @@
 			echo "$email";
 			echo "<button class='btn' ><a href='edit.php ?newmail=nmail'>Change</a></button>";
 			if (isset($_REQUEST['newmail'])&& $_REQUEST['newmail']=="nmail") {
-				
 
 				echo "<br> <br><label for='mail' name='mail'>New Email Address :</label>
 					<input type='email' name='mail' >

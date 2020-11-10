@@ -17,15 +17,20 @@
 		$npass=mysqli_real_escape_string($con,$_REQUEST['pass']);
 		$ndob=mysqli_real_escape_string($con,$_REQUEST['dob']);
 		$ninterst=mysqli_real_escape_string($con,$_REQUEST['gender']);
+		
 
-
-
-		if ($nemail!=NULL) {
+		if ($nemail==$email) {
+				echo "string";
+			}
+		if ($nemail!=NULL && $nemail!=$email) {
+			
 			$query="UPDATE users SET email = '$nemail' WHERE email='$email'";
 			mysqli_query($con,$query);
 			session_destroy();
 			header("Location:alrady-reg.php");
+				
 		}
+		else header("Location:edit.php ?samemail=smail");
 		if ($nname!=NULL) {
 			$query="UPDATE users SET fname = '$nname' WHERE email='$email'";
 			mysqli_query($con,$query);
