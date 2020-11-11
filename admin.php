@@ -341,12 +341,98 @@
 
  						
 				}
-				echo "</table>";
-				
-			}
-			
-			
+				echo "</table>";			
+			}	
 		}
+		//for men table
+		if (isset($_REQUEST['men'])&&$_REQUEST['men']=="pro") {
+			echo "<b><u>Mens Products</u></b> <br><br>";
+
+			
+			$query= "select * from all_product where gender='Men' ";
+			
+			$result=mysqli_query($con,$query);
+			if (mysqli_num_rows($result)>0) {
+				
+					echo "
+
+					<table>";
+					echo "
+ 						<tr>
+ 						<th>Image</th>
+ 						<th>Code</th>
+ 						<th>Name</th>
+ 						<th>Size</th>
+ 						<th>Prize</th>
+ 						<th>Gender</th>
+ 						<th>Quantity</th>
+ 						<th></th>
+ 						</tr>";
+ 						while ($row=mysqli_fetch_assoc($result)) {
+ 							$pcode=$row['pcode'];
+
+ 							echo 
+ 						"<tr>
+ 						<td><img src='image/{$row['img']}' height='45px'></td>
+ 						<td>{$row['pcode']}</td>
+ 						<td>{$row['pname']}</td>
+ 						<td>{$row['psize']} </td>
+ 						<td>{$row['prize']}</td>
+ 						<td>{$row['gender']}</td>
+ 						<td>{$row['quantity']}</td>
+ 						<td><a id='rm' class='dl' href='item_delete.php?remove=$pcode'>Remove</a></td>
+ 						</tr>";
+
+ 						
+				}
+				echo "</table>";			
+			}	
+		}
+		//for women table
+		if (isset($_REQUEST['women'])&&$_REQUEST['women']=="pro") {
+			echo "<b><u>Mens Products</u></b> <br><br>";
+
+			
+			$query= "select * from all_product where gender='Women' ";
+			
+			$result=mysqli_query($con,$query);
+			if (mysqli_num_rows($result)>0) {
+				
+					echo "
+
+					<table>";
+					echo "
+ 						<tr>
+ 						<th>Image</th>
+ 						<th>Code</th>
+ 						<th>Name</th>
+ 						<th>Size</th>
+ 						<th>Prize</th>
+ 						<th>Gender</th>
+ 						<th>Quantity</th>
+ 						<th></th>
+ 						</tr>";
+ 						while ($row=mysqli_fetch_assoc($result)) {
+ 							$pcode=$row['pcode'];
+
+ 							echo 
+ 						"<tr>
+ 						<td><img src='image/{$row['img']}' height='45px'></td>
+ 						<td>{$row['pcode']}</td>
+ 						<td>{$row['pname']}</td>
+ 						<td>{$row['psize']} </td>
+ 						<td>{$row['prize']}</td>
+ 						<td>{$row['gender']}</td>
+ 						<td>{$row['quantity']}</td>
+ 						<td><a id='rm' class='dl' href='item_delete.php?remove=$pcode'>Remove</a></td>
+ 						</tr>";
+
+ 						
+				}
+				echo "</table>";			
+			}	
+		}
+
 
 		?>
 

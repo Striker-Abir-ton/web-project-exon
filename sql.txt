@@ -22,4 +22,3 @@ CREATE TABLE all_product(
 	gender VARCHAR(100) NOT NULL,
 	quantity INT NOT NULL
 )
-
