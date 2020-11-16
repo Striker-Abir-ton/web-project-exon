@@ -30,10 +30,10 @@
 						 <div class="over-content">
 						  	<div id="mw2" class="flex">
 						  		<div class="mw">
-						  			<a href="men.php"><b>MEN</b></a>
+						  			<a href="men.php?var=men"><b>MEN</b></a>
 						  		</div>
 						  		<div class="mw">
-						  			<a href="women.php"><b>WOMEN</b></a>
+						  			<a href="women.php?var=women"><b>WOMEN</b></a>
 						  		</div>
     							
 						  	</div>
@@ -70,12 +70,12 @@
 						<ul id="bar2-ul">
 							<li>
 								<div>
-									<a href="women.php">WOMEN</a>
+									<a href="women.php?var=women">WOMEN</a>
 								</div>
 							</li>
 							<li>
 								<div>
-									<a href="men.php">	MEN</a>
+									<a href="men.php?var=men">	MEN</a>
 								</div>
 							</li>
 						</ul>
@@ -132,7 +132,7 @@
 														  	
 															if ($user==1) {
 																
-																echo "<a href='exon.php ?logout=out'>Log Out</a>";
+																echo "<a href='exon.php?logout=out'>Log Out</a>";
 															}
 
 															if ($user==0) {
@@ -262,7 +262,7 @@
 	
 			$fname=$_SESSION['fname'];
 			echo "$fname";
-			echo "<button class='btn' ><a href='edit.php ?newname=nname'>Change</a></button>";
+			echo "<button class='btn' ><a href='edit.php?newname=nname'>Change</a></button>";
 			if (isset($_REQUEST['newname'])&& $_REQUEST['newname']=="nname") {
 				
 
@@ -279,7 +279,7 @@
 	
 			$lname=$_SESSION['lname'];
 			echo "$lname";
-			echo "<button class='btn' ><a href='edit.php ?newlname=nname'>Change</a></button>";
+			echo "<button class='btn' ><a href='edit.php?newlname=nname'>Change</a></button>";
 			if (isset($_REQUEST['newlname'])&& $_REQUEST['newlname']=="nname") {
 				
 
@@ -296,7 +296,7 @@
 	
 			$phone=$_SESSION['phone'];
 			echo "$phone";
-			echo "<button class='btn' ><a href='edit.php ?newphn=nname'>Change</a></button>";
+			echo "<button class='btn' ><a href='edit.php?newphn=nname'>Change</a></button>";
 			if (isset($_REQUEST['newphn'])&& $_REQUEST['newphn']=="nname") {
 				
 
@@ -313,7 +313,7 @@
 	
 			$password=$_SESSION['password'];
 			echo "$password";
-			echo "<button class='btn' ><a href='edit.php ?newpass=nname'>Change</a></button>";
+			echo "<button class='btn' ><a href='edit.php?newpass=nname'>Change</a></button>";
 			if (isset($_REQUEST['newpass'])&& $_REQUEST['newpass']=="nname") {
 				
 
@@ -332,7 +332,7 @@
 	
 			$dob=$_SESSION['dob'];
 			echo "$dob";
-			echo "<button class='btn' ><a href='edit.php ?newdob=nname'>Change</a></button>";
+			echo "<button class='btn' ><a href='edit.php?newdob=nname'>Change</a></button>";
 			if (isset($_REQUEST['newdob'])&& $_REQUEST['newdob']=="nname") {
 				
 
@@ -351,7 +351,7 @@
 	
 			$interst=$_SESSION['interst'];
 			echo "$interst";
-			echo "<button class='btn' ><a href='edit.php ?newinterst=nname'>Change</a></button>";
+			echo "<button class='btn' ><a href='edit.php?newinterst=nname'>Change</a></button>";
 			if (isset($_REQUEST['newinterst'])&& $_REQUEST['newinterst']=="nname") {
 				
 

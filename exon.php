@@ -32,7 +32,7 @@
 						  		<div class="mw">
 						  			<?php 
 										if ($user==1) {
-											echo "<a href='men.php'><b>MEN</b></a>";
+											echo "<a href='men.php?var=men'><b>MEN</b></a>";
 										}
 										else
 											echo "<a href='alrady-reg.php'><b>MEN</b></a>";
@@ -41,7 +41,7 @@
 						  		<div class="mw">
 						  			<?php 
 										if ($user==1) {
-											echo "<a href='women.php'><b>WOMEN</b></a>";
+											echo "<a href='women.php?var=women'><b>WOMEN</b></a>";
 										}
 										else
 											echo "<a href='alrady-reg.php'><b>WOMEN</b></a>";
@@ -97,7 +97,7 @@
 								<div>
 									<?php 
 										if ($user==1) {
-											echo "<a href='women.php'>WOMEN</a>";
+											echo "<a href='women.php?var=women'>WOMEN</a>";
 										}
 										else
 											echo "<a href='alrady-reg.php'>WOMEN</a>";
@@ -109,7 +109,7 @@
 								<div>
 									<?php 
 										if ($user==1) {
-											echo "<a href='men.php'>MEN</a>";
+											echo "<a href='men.php?var=men'>MEN</a>";
 										}
 										else
 											echo "<a href='alrady-reg.php'>MEN</a>";
@@ -197,7 +197,7 @@
 																	}
 
 																	else {
-																		header('Location:alrady-reg.php ?loginagain=again');
+																		header('Location:alrady-reg.php?loginagain=again');
 																		
 																	}
 
@@ -214,7 +214,7 @@
 
 															if ($user==1) {
 																
-																echo "<a href='exon.php ?logout=out'>Log Out</a>";
+																echo "<a href='exon.php?logout=out'>Log Out</a>";
 															}
 
 															if ($user==0) {

@@ -29,10 +29,10 @@
 						 <div class="over-content">
 						  	<div id="mw2" class="flex">
 						  		<div class="mw">
-						  			<a href="men.php"><b>MEN</b></a>
+						  			<a href="men.php?var=men"><b>MEN</b></a>
 						  		</div>
 						  		<div class="mw">
-						  			<a href="women.php"><b>WOMEN</b></a>
+						  			<a href="women.php?var=women"><b>WOMEN</b></a>
 						  		</div>
     							
 						  	</div>
@@ -69,12 +69,12 @@
 						<ul id="bar2-ul">
 							<li>
 								<div>
-									<a href="women.php">WOMEN</a>
+									<a href="women.php?var=women">WOMEN</a>
 								</div>
 							</li>
 							<li>
 								<div>
-									<a href="men.php">	MEN</a>
+									<a href="men.php?var=men">	MEN</a>
 								</div>
 							</li>
 						</ul>
@@ -131,7 +131,7 @@
 														  	
 															if ($user==1) {
 																
-																echo "<a href='exon.php ?logout=out'>Log Out</a>";
+																echo "<a href='exon.php?logout=out'>Log Out</a>";
 															}
 
 															if ($user==0) {

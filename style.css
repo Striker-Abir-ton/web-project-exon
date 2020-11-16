@@ -343,10 +343,59 @@ ul #b3 a:hover{
 	font-size: .8em;
 	line-height: 15px;
 }
-#addP{
-	display: ;
-}
+
 /*Footer End*/
+
+
+/* for product card */
+.outer{
+	display: inline-block;
+	padding-top: 20px;
+	background-color: #eee;
+	color: #666;
+	padding-right: 10px;
+	padding-left: 10px;
+	background-color: #e3d8d8;
+	width: 100%;
+}
+
+.pcard{
+	margin-bottom: 20px;
+ float: left;
+ height: 487px;
+ padding: 10px;
+ width: 25%;
+}
+
+.pcard a{
+	text-decoration:none;
+	color: black;
+	font-size: 17px;
+	letter-spacing: 1px;
+}
+
+#one{
+	height: 40px;
+}
+#two{
+	height: 40px;
+}
+
+
+
+/* End product card*/
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /********** Large devices only **********/
@@ -360,6 +409,22 @@ ul #b3 a:hover{
 @media (min-width: 992px) and (max-width: 1199px) {
 	#srcbtnsml,#bars{
 		display: none;
+	}
+	.outer{
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	.pcard{
+		height:400px;
+	}
+}
+@media (min-width: 992px) and (max-width: 1100px) {
+	#srcbtnsml,#bars{
+		display: none;
+	}
+	.pcard{
+		width: 33.33%;
+		height: 400px;
 	}
 }
 
@@ -383,6 +448,10 @@ ul #b3 a:hover{
     #signin{
 	width: 148px;
 	height: 50px;
+	}
+	.pcard{
+		width: 33.33%;
+		height: 400px;
 	}
 }
 
@@ -415,6 +484,14 @@ ul #b3 a:hover{
     #signin{
 	width: 146px;
 	height: 50px;
+	}
+	.pcard{
+		width: 50%;
+		height: 300px;
+	}
+	.outer{
+		padding-left: 50px;
+		padding-right: 50px;
 	}
 }
 @media (max-width: 660px) {

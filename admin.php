@@ -30,10 +30,10 @@
 						 <div class="over-content">
 						  	<div id="mw2" class="flex">
 						  		<div class="mw">
-						  			<a href="men.php"><b>MEN</b></a>
+						  			<a href="men.php?var=men"><b>MEN</b></a>
 						  		</div>
 						  		<div class="mw">
-						  			<a href="women.php"><b>WOMEN</b></a>
+						  			<a href="women.php?var=women"><b>WOMEN</b></a>
 						  		</div>
     							
 						  	</div>
@@ -70,12 +70,12 @@
 						<ul id="bar2-ul">
 							<li>
 								<div>
-									<a href="women.php">WOMEN</a>
+									<a href="women.php?var=women">WOMEN</a>
 								</div>
 							</li>
 							<li>
 								<div>
-									<a href="men.php">	MEN</a>
+									<a href="men.php?var=men">	MEN</a>
 								</div>
 							</li>
 						</ul>
@@ -132,7 +132,7 @@
 														  	
 															if ($user==1) {
 																
-																echo "<a href='exon.php ?logout=out'>Log Out</a>";
+																echo "<a href='exon.php?logout=out'>Log Out</a>";
 															}
 
 															if ($user==0) {
@@ -235,7 +235,7 @@
 	</header>
 <div id='admin'>
 	<div id='admin_content'>
-		<form action="admin.php ?form=ad" method="post">
+		<form action="admin.php?form=ad" method="post">
 			<label>Product name : </label>
 			<input type="text" name="pname"><br><br>
 			<label>Select Image : </label>
@@ -293,9 +293,9 @@
 <div id='addd'>
 	<div >
 
-		<a class='ed aa' href="admin.php ?allproduct=pro">All Products</a>
-		<a class='ed aa' href="admin.php ?men=pro">Men</a>
-		<a class='ed aa' href="admin.php ?women=pro">Women</a>
+		<a class='ed aa' href="admin.php?allproduct=pro">All Products</a>
+		<a class='ed aa' href="admin.php?men=pro">Men</a>
+		<a class='ed aa' href="admin.php?women=pro">Women</a>
 	</div>
 	
 	<div id='admin_content' style="text-align: none;">
@@ -354,9 +354,7 @@
 			$result=mysqli_query($con,$query);
 			if (mysqli_num_rows($result)>0) {
 				
-					echo "
-
-					<table>";
+					echo "<table>";
 					echo "
  						<tr>
  						<th>Image</th>

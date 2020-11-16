@@ -29,10 +29,10 @@
 						 <div class="over-content">
 						  	<div id="mw2" class="flex">
 						  		<div class="mw">
-						  			<a href="men.php"><b>MEN</b></a>
+						  			<a href="men.php?var=men"><b>MEN</b></a>
 						  		</div>
 						  		<div class="mw">
-						  			<a href="women.php"><b>WOMEN</b></a>
+						  			<a href="women.php?var=women"><b>WOMEN</b></a>
 						  		</div>
     							
 						  	</div>
@@ -68,12 +68,12 @@
 						<ul id="bar2-ul">
 							<li>
 								<div>
-									<a href="women.php">WOMEN</a>
+									<a href="women.php?var=women">WOMEN</a>
 								</div>
 							</li>
 							<li>
 								<div>
-									<a id="menbar" href="men.php">	MEN</a>
+									<a id="menbar" href="men.php?var=men">	MEN</a>
 								</div>
 							</li>
 						</ul>
@@ -131,7 +131,7 @@
 														  	
 															if ($user==1) {
 																
-																echo "<a href='exon.php ?logout=out'>Log Out</a>";
+																echo "<a href='exon.php?logout=out'>Log Out</a>";
 															}
 
 															if ($user==0) {
@@ -227,6 +227,43 @@
 			</div>	<!-- end-->
 		</nav> <!--Header nav end-->
 	</header>
+
+
+
+	<div >
+		<div class="outer" >
+			<?php
+				if (isset($_REQUEST['var'])&&$_REQUEST['var']=="men") {
+					
+					$query= "select * from all_product where gender='Men' ";
+			
+					$result=mysqli_query($con,$query);
+					if (mysqli_num_rows($result)>0) {
+						
+						while ($row=mysqli_fetch_assoc($result)) {
+							$pcode=$row['pcode'];
+ 							echo "<div class='pcard'>
+								<a href='productinfo.php?var=$pcode'> " ;
+
+ 								echo "<img src='image/{$row['img']}' width='100%' height='82.75%'>";
+								echo "<div id='one'>{$row['pname']}</div>";
+								echo "<p id='two'><b> Prize : {$row['prize']} TK</b></p>";
+
+								echo "</a>
+							</div>";
+
+ 						}
+ 							
+					}
+
+				}
+						
+					 		
+			?>
+			
+		</div>
+		
+	</div>
 
 
 	<footer>
