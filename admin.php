@@ -388,7 +388,7 @@
 		}
 		//for women table
 		if (isset($_REQUEST['women'])&&$_REQUEST['women']=="pro") {
-			echo "<b><u>Mens Products</u></b> <br><br>";
+			echo "<b><u>Womens Products</u></b> <br><br>";
 
 			
 			$query= "select * from all_product where gender='Women' ";

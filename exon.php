@@ -358,6 +358,12 @@
 			</div>	<!-- end-->
 		</nav> <!--Header nav end-->
 	</header>
+		<img src="image/Screenshot 2020-11-17 231200.png" width="100%">
+		<div style="padding: 20px 120px">
+			<img src="image/clothes_shop_signboard_design_in_vintage_style_6824890.jpg" width="100%" height="550px">
+		</div>
+		<img src="image/Screenshot 2020-11-17 231200.png" width="100%">
+		
 
 		<footer>
 		<div>

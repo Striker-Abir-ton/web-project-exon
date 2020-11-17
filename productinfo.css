@@ -1,0 +1,140 @@
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+#ly{
+	margin: 30px 17.91% 0px;
+}
+#layout{
+	
+	display: flex;	
+	height: 685px;
+	width: 100%;
+}
+#pimgg{
+	height: 654px;
+	width: 640px;
+}
+
+#pimgg img{
+	width:512px;
+	height:654px;
+}
+#layout-content{
+	
+	height: 629px;
+	width: 320px;
+	margin: 25px 0px 0px;
+	padding:0px 10px;
+}
+#abag{
+	text-decoration: none;
+	color: #fff;
+	font-size: 18px;
+
+}
+#abag #bag{
+	background-color: #018849;
+	height: 40px;
+	width: 210px;
+	text-align: center;
+	padding-top: 8px;
+}
+
+
+/********** Large devices only **********/
+@media (min-width: 1200px) and (max-width: 2560px) {
+
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+	#ly{
+	margin: 30px 10% 0px;	
+	}
+	#pimgg{
+	height: 620px;
+	width: 600px;
+	}
+	#pimgg img{
+	width:492px;
+	height:620px;
+	}
+	#layout-content{
+	
+	height: 620px;
+	}
+}
+
+
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+	#ly{
+	margin: 30px 10% 0px;	
+	}
+	#pimgg{
+	height: 580px;
+	width: 560px;
+	}
+	#pimgg img{
+	width:472px;
+	height:560px;
+	}
+	#layout-content{
+	
+	height: 580px;
+	}
+
+	
+}
+
+/********** Extra small devices only **********/
+@media (max-width: 767px) {
+
+	#ly{
+	margin: 30px 5% 0px;	
+	}
+	#pimgg{
+	height: 520px;
+	width: 520px;
+	}
+	#pimgg img{
+	width:422px;
+	height:520px;
+	}
+	#layout-content{
+	height: 200px;
+	}
+	#layout{
+		display: block;
+	}
+}
+@media (max-width: 660px) {
+	#ly{
+	margin: 30px 0px 0px;	
+	}
+	#pimgg{
+	height: 500px;
+	width: 500px;
+	}
+	#pimgg img{
+	width:422px;
+	height:500px;
+	}
+	#layout-content{
+	
+	height: 200px;
+	}
+	#layout{
+		display: block;
+	}
+
+}
+
+
+/***super extra small devices only ***/
+@media (max-width: 479px){
+
+}

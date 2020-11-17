@@ -1,5 +1,6 @@
 <?php 
 	require("dbcnct.php");
+
  ?>
 
 <!DOCTYPE html>
@@ -10,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Exon Export</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="productinfo.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -29,10 +31,23 @@
 						 <div class="over-content">
 						  	<div id="mw2" class="flex">
 						  		<div class="mw">
-						  			<a href="men.php?var=men"><b>MEN</b></a>
+						  			<?php 
+										if ($user==1) {
+											echo "<a href='men.php?var=men'><b>MEN</b></a>";
+										}
+										else
+											echo "<a href='alrady-reg.php'><b>MEN</b></a>";
+									 ?>
 						  		</div>
 						  		<div class="mw">
-						  			<a href="women.php?var=women"><b>WOMEN</b></a>
+						  			<?php 
+										if ($user==1) {
+											echo "<a href='women.php?var=women'><b>WOMEN</b></a>";
+										}
+										else
+											echo "<a href='alrady-reg.php'><b>WOMEN</b></a>";
+									 ?>
+						  			
 						  		</div>
     							
 						  	</div>
@@ -45,11 +60,23 @@
  						    	</div>
  						    	<br>
  						    	<div class="barsop">
- 						    		<a href="newin.php"><b>New in</b></a>
+ 						    		<?php 
+										if ($user==1) {
+											echo "<a href='newin.php'><b>New in</b></a>";
+										}
+										else
+											echo "<a href='alrady-reg.php'><b>New in</b></a>";
+									?>
  						    	</div>
  						    	<br>
  						    	<div class="barsop">
- 						    		<a href="brands.php"><b>Brands</b></a>
+ 						    		<?php 
+										if ($user==1) {
+											echo "<a href='brands.php'><b>Brands</b></a>";
+										}
+										else
+											echo "<a href='alrady-reg.php'><b>Brands</b></a>";
+									?>
  						    	</div>
     							
  						    </div>
@@ -69,12 +96,25 @@
 						<ul id="bar2-ul">
 							<li>
 								<div>
-									<a href="women.php?var=women">WOMEN</a>
+									<?php 
+										if ($user==1) {
+											echo "<a href='women.php?var=women'>WOMEN</a>";
+										}
+										else
+											echo "<a href='alrady-reg.php'>WOMEN</a>";
+									 ?>
+									
 								</div>
 							</li>
 							<li>
 								<div>
-									<a href="men.php?var=men">	MEN</a>
+									<?php 
+										if ($user==1) {
+											echo "<a href='men.php?var=men'>MEN</a>";
+										}
+										else
+											echo "<a href='alrady-reg.php'>MEN</a>";
+									 ?>
 								</div>
 							</li>
 						</ul>
@@ -112,7 +152,9 @@
 										<ul>
 											<li>
 												<div id="signin">
-													<u>	
+													<u>
+														
+														
 														<!-- user login -->
 														<?php
 															
@@ -124,11 +166,53 @@
 														  		$_SESSION['user']=0;
 														  		if (isset($_SESSION['user']) && $_SESSION['user']==0)
 																		$user=0;
-														  		
+														  		header('Location:exon.php');
 														  		
 														  	}
-														  	# logout end
 														  	
+
+
+														   
+															if (!$user) {
+																if (isset($_REQUEST['login'])&& $_REQUEST['login']=='in') {
+																	header('Location:exon.php');
+																	$email=$_REQUEST['mail'];
+																	$password=$_REQUEST['pass'];
+																	$query="select * from users where email='$email' and password='$password'";
+																	$result1=mysqli_query($con,$query);
+																	if (mysqli_num_rows($result1)==1) {
+																		$row=mysqli_fetch_array($result1);
+
+																		$_SESSION['user']=1;
+																		$_SESSION['email']=$row[1];
+																		$_SESSION['fname']=$row[2];
+																		$_SESSION['lname']=$row[3];
+																		$_SESSION['phone']=$row[4];
+																		$_SESSION['password']=$row[5];
+																		$_SESSION['dob']=$row[6];
+																		$_SESSION['interst']=$row[7];
+																		
+																		
+																		#echo "HI.{$row[2]}&nbsp;&nbsp;&nbsp;&nbsp,&nbsp;&nbsp;";
+																		
+																	}
+
+																	else {
+																		header('Location:alrady-reg.php?loginagain=again');
+																		
+																	}
+
+																}
+																if (isset($_SESSION['user']) && $_SESSION['user']==1)
+																		$user=1;
+																else
+																		{$user=0;}
+																
+															
+
+
+															}
+
 															if ($user==1) {
 																
 																echo "<a href='exon.php?logout=out'>Log Out</a>";
@@ -139,22 +223,36 @@
 																echo "<a href='alrady-reg.php'>Sign In</a>";
 															}
 
+															
+
 														  ?>
+
 														  <!-- end user login -->
-													</u>	
+													</u>
 												</div>
 											</li>
 											<li>
 												<div class="dropdown-li">
-													<a href="myaccount.php">
-														My Account
-													</a>
+													<?php 
+														if ($user==1) {
+															echo "<a href='myaccount.php'>My Account</a>";
+														}
+														else
+															echo "<a href='alrady-reg.php'>My Account</a>";
+													 ?>
+													
 												</div>
 											</li>
 											<li>
 												<div class="dropdown-li">
-													<a href="myorder.php">My Orders
-													</a>
+													<?php 
+														if ($user==1) {
+															echo "<a href='myorder.php'>My Orders</a>";
+														}
+														else
+															echo "<a href='alrady-reg.php'>My Orders</a>";
+													 ?>
+													
 												</div>
 											</li>
 										</ul>
@@ -170,7 +268,14 @@
 							<li class='divfor3ta'>
 								<div  id='dropdown-account'>
 									<button id='usericonbtn' type="button">
-									<a href="saved-item.php" target="_blank"><i class="fa fa-heart-o fa-2x"></i></a>
+									<?php 
+										if ($user==1) {
+											echo "<a href='saved-item.php' target='_blank'><i class='fa fa-heart-o fa-2x'></i></a>";
+										}
+										else
+											echo "<a href='alrady-reg.php'><i class='fa fa-heart-o fa-2x'></i></a>";
+									?>
+									
 									</button><!--end usericonbtn-->
 								</div><!--end dropdown-account-->
 							</li>
@@ -179,7 +284,13 @@
 							<li class='divfor3ta'>
 								<div  id='dropdown-account'>
 									<button id='usericonbtn' type="button">
-										<a href="wishlist.php" target="_blank"><i class="fa fa-shopping-bag fa-2x"></i></a>
+										<?php 
+										if ($user==1) {
+											echo "<a href='wishlist.php' target='_blank'><i class='fa fa-shopping-bag fa-2x'></i></a>";
+										}
+										else
+											echo "<a href='alrady-reg.php'><i class='fa fa-shopping-bag fa-2x'></i></a>";
+										?>
 									</button><!--end usericonbtn-->
 								</div><!--end dropdown-account-->
 							</li>
@@ -195,12 +306,26 @@
 						<ul class="flex">
 							<li id="b3">
 								<div class="b3op">
-									<a href="newin.php">New in</a>
+									<?php 
+										if ($user==1) {
+											echo "<a href='newin.php'>New in</a>";
+										}
+										else
+											echo "<a href='alrady-reg.php'>New in</a>";
+									?>
+									
 								</div>
 							</li>
 							<li id="b3">
 								<div class="b3op">
-									<a href="brands.php">Brands</a>
+									<?php 
+										if ($user==1) {
+											echo "<a href='brands.php'>Brands</a>";
+										}
+										else
+											echo "<a href='alrady-reg.php'>Brands</a>";
+									?>
+									
 								</div>
 							</li>
 							<?php
@@ -225,7 +350,7 @@
 						</ul>
 					</div>
 				</div><!--end of bar3-->
-				<div id="bar4">
+				<div id="bar4" >
 					<b>No Discount Available!!!!!</b>
 				</div><!--end of bar4-->
 					
@@ -234,23 +359,48 @@
 			</div>	<!-- end-->
 		</nav> <!--Header nav end-->
 	</header>
+
 <?php  
-	if (isset($_REQUEST['wish'])&& $_REQUEST['wish']=="wi") {
-														  		
-		$p=$_GET['pcode'];
-		echo "$p";												  		
-														  		
-	}
-?>		
+	$p=$_GET['var'];
+	$query= "select * from all_product where pcode='$p' ";
+			
+	$result=mysqli_query($con,$query);
+						
+	while ($row=mysqli_fetch_assoc($result)) {
+
+			echo "<div id='ly'>
+		<div id='layout'>
+			<div id='pimgg'>
+				<img src='image/{$row['img']}'>
+			</div>
+			<div id='layout-content'>
+				<h1>{$row['pname']}</h1>
+				<div style='padding-top: 10px'><h3>Prize : {$row['prize']} TK</h3></div>
+				
+				<div>
+				<br>
+				<br>
+					<label>Size : </label><br>
+					<input type='text' name='size'>
+				</div>
+				<div>
+				<br>
+					<a id='abag' href='wishlist.php?pcode=$p&wish=wi'><div id='bag'><b>Add To Bag</b></div></a>
+				</div>
+			</div>
+		</div>
+	</div>";
+
+
 	
-	<div>
-		
-	</div>
+	}
+	
+	
 
-		
+?>
 
 
-		<footer>
+	<footer>
 		<div>
 			<div id="foot1">
 				<div id="Hours"class="row">
