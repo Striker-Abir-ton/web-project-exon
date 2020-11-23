@@ -97,145 +97,75 @@
 						<ul class="flex" id="floating">
 							<li>
 								<div id="srcbtnsml">
-										<button id='search-icon-btn'type="button">
-											<i class="fa fa-search"></i>
-											<a href="srcresultsm.php"></a>
-										</button>
+									<form action="searchresultmob.php?srch=src" method="post" id='searchform' class="flex">
+										<label id="labelsrch">
+										<input  type="search" name="search" placeholder="Search for items, Brands">
+										</label><!--labelsrch-->
+										<button id='search-icon-btn'type="submit">
+										<i class="fa fa-search"></i>
+										</button><!--end search-icon-btn-->
+									</form>
+										
 								</div>
 							</li>
-							<li id='for3ta'>
-								<div  id='dropdown-account'>
-									<button id='usericonbtn' type="button">
-										<i class="fa fa-user-circle fa-2x"></i>
-									</button><!--end usericonbtn-->
-									<div class='dropdown-content'>
-										<ul>
-											<li>
-												<div id="signin">
-													<u>	
-														<!-- user login -->
-														<?php
-															
-
-															# <!--logout start-->
-														  
-														  	if (isset($_REQUEST['logout'])&& $_REQUEST['logout']=="out") {
-														  		session_destroy();
-														  		$_SESSION['user']=0;
-														  		if (isset($_SESSION['user']) && $_SESSION['user']==0)
-																		$user=0;
-														  		
-														  		
-														  	}
-														  	# logout end
-														  	
-															if ($user==1) {
-																
-																echo "<a href='exon.php?logout=out'>Log Out</a>";
-															}
-
-															if ($user==0) {
-																
-																echo "<a href='alrady-reg.php'>Sign In</a>";
-															}
-
-														  ?>
-														  <!-- end user login -->
-													</u>	
-												</div>
-											</li>
-											<li>
-												<div class="dropdown-li">
-													<a href="myaccount.php">
-														My Account
-													</a>
-												</div>
-											</li>
-											<li>
-												<div class="dropdown-li">
-													<a href="myorder.php">My Orders
-													</a>
-												</div>
-											</li>
-										</ul>
-									</div>
-
-
-
-								</div><!--end dropdown-account-->
-							</li>
-
-
-					<!--2-->
-							<li class='divfor3ta'>
-								<div  id='dropdown-account'>
-									<button id='usericonbtn' type="button">
-									<a href="saved-item.php" target="_blank"><i class="fa fa-heart-o fa-2x"></i></a>
-									</button><!--end usericonbtn-->
-								</div><!--end dropdown-account-->
-							</li>
-
-					<!--3-->
-							<li class='divfor3ta'>
-								<div  id='dropdown-account'>
-									<button id='usericonbtn' type="button">
-										<a href="wishlist.php" target="_blank"><i class="fa fa-shopping-bag fa-2x"></i></a>
-									</button><!--end usericonbtn-->
-								</div><!--end dropdown-account-->
-							</li>
-						</ul>
-					</div>
-					<!--last added end-->
+							
 				</div> <!--end of bar2-->
-
-
-				
-				<div id="bar3">
-					<div>
-						<ul class="flex">
-							<li id="b3">
-								<div class="b3op">
-									<a href="newin.php">New in</a>
-								</div>
-							</li>
-							<li id="b3">
-								<div class="b3op">
-									<a href="brands.php">Brands</a>
-								</div>
-							</li>
-							<?php
-								if ($user==1) {
-									$email=$_SESSION['email'];
-								$password=$_SESSION['password'];
-								$mail='strikerabirhasasn@gmail.com';
-								$pass='admin';
-									if ($email==$email && $password==$pass) {
-										echo "
-											<li id='b3' style='padding-right: 10px;padding-left: 10px;padding-top: 15px;'>
-												<div>
-									 				<a href='admin.php'>Admin Panel</a>
-												</div>
-											</li>
-										";
-									}
-
-								}
-								
-							  ?>
-						</ul>
-					</div>
-				</div><!--end of bar3-->
-				<div id="bar4">
-					<b>No Discount Available!!!!!</b>
-				</div><!--end of bar4-->
-					
-	
 				
 			</div>	<!-- end-->
 		</nav> <!--Header nav end-->
 	</header>
 
-		<footer>
+
+	<div  >
+		<div class="outer" >
+			<?php
+
+
+				if (isset($_REQUEST['srch'])&&$_REQUEST['srch']=="src") {
+					$src_item=$_REQUEST['search'];
+					if ($src_item!=NULL) {
+						$query= "select * from all_product where pname like '%$src_item%'";
+			
+						$result=mysqli_query($con,$query);
+						if (mysqli_num_rows($result)>0) {
+						
+							while ($row=mysqli_fetch_assoc($result)) {
+								$pcode=$row['pcode'];
+ 								echo "<div class='pcard'>
+								<a href='productinfo.php?var=$pcode'> " ;
+
+ 									echo "<img src='image/{$row['img']}' width='100%' height='82.75%'>";
+									echo "<div id='one'>{$row['pname']}</div>";
+									echo "<p id='two'><b> Prize : {$row['prize']} TK</b></p>";
+
+									echo "</a>
+								</div>";
+
+ 							}
+ 							
+						}
+						else echo "<div style='text-align: center; font-size: 50px;'><b>NOT FOUND</b></div>";
+					}
+					
+					else echo "<div style='text-align: center; font-size: 50px;'><b>NOT FOUND</b></div>";
+
+				}	 		
+			?>
+			
+		</div>
+		
+	</div>
+
+
+
+
+
+
+
+
+
+
+	<footer>
 		<div>
 			<div id="foot1">
 				<div id="Hours"class="row">

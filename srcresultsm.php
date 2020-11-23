@@ -81,7 +81,7 @@
 					</div>
 					
 					<div id="searchdiv">
-						<form action="" method="get" id='searchform' class="flex">
+						<form action="srcresultsm.php?srch=src" method="post" id='searchform' class="flex">
 							<label id="labelsrch">
 								<input  type="search" name="search" placeholder="Search for items, Brands">
 							</label><!--labelsrch-->
@@ -195,16 +195,50 @@
 						<ul class="flex">
 							<li id="b3">
 								<div class="b3op">
-									<a href="newin.php">New in</a>
+									<?php 
+										if ($user==1) {
+											echo "<a href='newin.php'>New in</a>";
+										}
+										else
+											echo "<a href='alrady-reg.php'>New in</a>";
+									?>
+									
 								</div>
 							</li>
 							<li id="b3">
 								<div class="b3op">
-									<a href="brands.php">Brands</a>
+									<?php 
+										if ($user==1) {
+											echo "<a href='brands.php'>Brands</a>";
+										}
+										else
+											echo "<a href='alrady-reg.php'>Brands</a>";
+									?>
+									
 								</div>
 							</li>
+							<?php
+								if ($user==1) {
+									$email=$_SESSION['email'];
+								$password=$_SESSION['password'];
+								$mail='strikerabirhasasn@gmail.com';
+								$pass='admin';
+									if ($email==$email && $password==$pass) {
+										echo "
+											<li id='b3' style='padding-right: 10px;padding-left: 10px;padding-top: 15px;'>
+												<div>
+									 				<a href='admin.php'>Admin Panel</a>
+												</div>
+											</li>
+										";
+									}
+
+								}
+								
+							  ?>
 						</ul>
 					</div>
+				</div><!--end of bar3-->
 				</div><!--end of bar3-->
 				<div id="bar4">
 					<b>No Discount Available!!!!!</b>
@@ -216,7 +250,57 @@
 		</nav> <!--Header nav end-->
 	</header>
 
-		<footer>
+
+	<div  >
+		<div class="outer" >
+			<?php
+
+
+				if (isset($_REQUEST['srch'])&&$_REQUEST['srch']=="src") {
+					$src_item=$_REQUEST['search'];
+					if ($src_item!=NULL) {
+						$query= "select * from all_product where pname like '%$src_item%'";
+			
+						$result=mysqli_query($con,$query);
+						if (mysqli_num_rows($result)>0) {
+						
+							while ($row=mysqli_fetch_assoc($result)) {
+								$pcode=$row['pcode'];
+ 								echo "<div class='pcard'>
+								<a href='productinfo.php?var=$pcode'> " ;
+
+ 									echo "<img src='image/{$row['img']}' width='100%' height='82.75%'>";
+									echo "<div id='one'>{$row['pname']}</div>";
+									echo "<p id='two'><b> Prize : {$row['prize']} TK</b></p>";
+
+									echo "</a>
+								</div>";
+
+ 							}
+ 							
+						}
+						else echo "<div style='text-align: center; font-size: 50px;'><b>NOT FOUND</b></div>";
+					}
+					
+					else echo "<div style='text-align: center; font-size: 50px;'><b>NOT FOUND</b></div>";
+
+				}	 		
+			?>
+			
+		</div>
+		
+	</div>
+
+
+
+
+
+
+
+
+
+
+	<footer>
 		<div>
 			<div id="foot1">
 				<div id="Hours"class="row">

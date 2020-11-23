@@ -120,7 +120,7 @@
 					</div>
 					
 					<div id="searchdiv">
-						<form action="" method="get" id='searchform' class="flex">
+						<form action="srcresultsm.php?srch=src" method="post" id='searchform' class="flex">
 							<label id="labelsrch">
 								<input  type="search" name="search" placeholder="Search for items, Brands">
 							</label><!--labelsrch-->
@@ -137,8 +137,7 @@
 							<li>
 								<div id="srcbtnsml">
 										<button id='search-icon-btn'type="button">
-											<i class="fa fa-search"></i>
-											<a href="srcresultsm.php"></a>
+											<a href="searchresultmob.php"><i class="fa fa-search"></i></a>
 										</button>
 								</div>
 							</li>

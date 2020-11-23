@@ -121,7 +121,7 @@
 					</div>
 					
 					<div id="searchdiv">
-						<form action="" method="get" id='searchform' class="flex">
+						<form action="srcresultsm.php?srch=src" method="post" id='searchform' class="flex">
 							<label id="labelsrch">
 								<input  type="search" name="search" placeholder="Search for items, Brands">
 							</label><!--labelsrch-->

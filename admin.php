@@ -82,7 +82,7 @@
 					</div>
 					
 					<div id="searchdiv">
-						<form action="" method="get" id='searchform' class="flex">
+						<form action="srcresultsm.php?srch=src" method="post" id='searchform' class="flex">
 							<label id="labelsrch">
 								<input  type="search" name="search" placeholder="Search for items, Brands">
 							</label><!--labelsrch-->
@@ -279,7 +279,7 @@
 					}
 
 					else{
-					$query="INSERT INTO all_product VALUES ('$pname','$img','$pcode','$psize','$prize','$pgender','$pquantity')";
+					$query="INSERT INTO all_product VALUES (NULL,'$pname','$img','$pcode','$psize','$prize','$pgender','$pquantity')";
 					mysqli_query($con,$query);
 					}
 				}
