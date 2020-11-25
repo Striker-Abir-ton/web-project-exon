@@ -96,10 +96,9 @@
 							<li>
 								<div id="srcbtnsml">
 										<button id='search-icon-btn'type="button">
-											<i class="fa fa-search"></i>
-											<a href="srcresultsm.php"></a>
+											<a href="searchresultmob.php"><i class="fa fa-search"></i></a>
 										</button>
-								</div>
+								</div> 
 							</li>
 							<li class='divfor3ta'>
 								<div  id='dropdown-account'>

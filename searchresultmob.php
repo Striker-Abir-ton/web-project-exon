@@ -165,46 +165,7 @@
 
 
 
-	<footer>
-		<div>
-			<div id="foot1">
-				<div id="Hours"class="row">
-					<span><strong>Hours</strong></span><br>
-					Sat-Thurs: 8:00am - 10:00pm<br>
-					Friday Closed<br>
-					Sat-Fri: 8:00am - 12:30pm (Eid Special)
-				</div> <!-- hours & row-->
-				<div id="Address" class="row">
-					<span><strong>Address</strong></span><br>
-					<p>
-					S.N.B Super Market, <br>Alamdanga, Chuadanga</p>
-					<div id="maps">
-						<a href="https://goo.gl/maps/BPuSkhYsByP8ejR66">
-							<div>
-								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.6153092657564!2d88.94507341488188!3d23.76109379428481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39feb92c30ab5c69%3A0x721a02036745cac4!2sExon%20Export%20And%20Garments!5e0!3m2!1sen!2sbd!4v1599615487789!5m2!1sen!2sbd" width="100%" height="113px" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-							</div>
-						</a>
-					</div> <!--maps-->
-				</div> <!--Address & row-->
-				<div id="Contactus" class="row">
-					<span><strong>Contact us</strong></span><br>
-					<b>Email: </b>exonexportgarments@gmail.com<br>
-					<b>Phone: </b><a href="tel:01711444754" id="phone">
-						<span>01711444754</span>
-					</a><br>
-					<div id="Aboutus">
-						<span><strong>About Us</strong></span>
-						<p>"We try our best to give you best quality cloths. We have best collection and brands. Thank you for supporting us. Hope we will give you a good service."</p>
-					</div> <!--Aboutus-->
-
-				</div> <!--Contactus & row-->
-			</div> <!--foot1-->
-		
-			<div id="foot2">
-				&copy; Exon Export & Garments 2020
-			</div> <!--foot2-->
-		</div>
-	</footer>
+	
 
 
 	<script type="text/javascript" src="script.js"></script>
