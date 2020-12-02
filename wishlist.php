@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Exon Export</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="admin.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -233,14 +234,259 @@
 			</div>	<!-- end-->
 		</nav> <!--Header nav end-->
 	</header>
-<?php  
-	if (isset($_REQUEST['wish'])&& $_REQUEST['wish']=="wi") {
-														  		
-		$p=$_GET['pcode'];
-		echo "$p";												  		
-														  		
-	}
-?>		
+	
+
+<div id='addd' >
+	<div >
+
+		<a class='ed aa' href="#">Chosen Products</a>
+		
+	</div>
+	
+	<div id='admin_content' style="text-align: none;">
+		<?php
+
+		if (isset($_REQUEST['wish'])&& $_REQUEST['wish']=="wi") {
+			$p=$_GET['pcode'];
+			$q=$_REQUEST['size'];
+		
+			$count=0;
+			if (empty($_SESSION['cart'])) {
+				$_SESSION['cart']=array();
+			}
+
+			$max=count($_SESSION['cart']);
+			for ($i=0; $i <$max ; $i++) { 
+				
+				if ($_SESSION['cart'][$i]==$p) {
+					$count++;
+				}
+			}
+		
+			if ($count==0 || $_SESSION['cart']==NULL)  {
+					array_push($_SESSION['cart'], $p);	
+								
+				}
+				else{
+					$count=0;
+				}
+			$max=count($_SESSION['cart']);
+		
+			$i=0;
+			a:
+			
+			if($i<$max){ 
+
+				$ar=$_SESSION['cart'][$i];
+				$query= "select * from all_product where pcode=$ar";
+				$result=mysqli_query($con,$query);
+			if (mysqli_num_rows($result)>0) {
+				
+					echo "
+
+					<table>";
+					if ($i==0) {
+						echo "
+ 						<tr>
+ 						<th>Image</th>
+ 						<th>Code</th>
+ 						<th>Name</th>
+ 						<th>Size</th>
+ 						<th>Prize</th>
+ 						
+ 						<th>Quantity</th>
+ 						<th>Gender</th>
+ 						<th></th>
+ 						</tr>";
+					}
+					
+ 						$row=mysqli_fetch_assoc($result);
+ 							$pcode=$row['pcode'];
+
+ 							echo 
+ 						"<tr>
+ 						<td style='width: 125.6px'><img src='image/{$row['img']}' height='45px'></td>
+ 						<td style='width: 108px'>{$row['pcode']}</td>
+ 						<td style='width: 116px'>{$row['pname']}</td>
+ 						<td style='width: 92px'>{$row['psize']} </td>
+ 						<td style='width: 108px'>{$row['prize']}</td>
+ 						<td style='width: 161.6px'>{$row['quantity']}</td>
+ 						<td style='width: 141.6px'>{$row['gender']}</td>
+ 						<td style='width: 150.4px'><a id='rm' class='dl' href='wishlist.php?rem=$pcode&remove=rm'>Remove</a></td>
+ 						</tr>";
+
+ 						
+				
+				echo "</table>";			
+			}
+			$i++;
+			
+			goto a;
+		}
+		
+
+		/*  #another way to print
+
+				$ar=$_SESSION['cart'][0];
+				$query= "select * from all_product where pcode=$ar";
+				$result=mysqli_query($con,$query);
+			if (mysqli_num_rows($result)>0) {
+				
+					echo "
+
+					<table>";
+					echo "
+ 						<tr>
+ 						<th>Image</th>
+ 						<th>Code</th>
+ 						<th>Name</th>
+ 						<th>Size</th>
+ 						<th>Prize</th>
+ 						<th>Quantity</th>
+ 						<th>Gender</th>
+ 						<th></th>
+ 						</tr>";
+					
+ 						while ($row=mysqli_fetch_assoc($result)) {
+ 							$pcode=$row['pcode'];
+
+ 							echo 
+ 						"<tr>
+ 						<td style='width: 125.6px'><img src='image/{$row['img']}' height='45px'></td>
+ 						<td style='width: 108px'>{$row['pcode']}</td>
+ 						<td style='width: 116px'>{$row['pname']}</td>
+ 						<td style='width: 92px'>{$row['psize']} </td>
+ 						<td style='width: 108px'>{$row['prize']}</td>
+ 						<td style='width: 161.6px'>{$row['quantity']}</td>
+ 						<td style='width: 141.6px'>{$row['gender']}</td>
+ 						<td style='width: 150.4px'><a id='rm' class='dl' href='item_delete.php?remove=$pcode'>Remove</a></td>
+ 						</tr>";
+
+ 						
+				}
+				echo "</table>";			
+			}
+
+			
+			
+			
+
+			for ($i=1; $i<$max ; $i++) { 
+
+				$ar=$_SESSION['cart'][$i];
+				$query= "select * from all_product where pcode=$ar";
+				$result=mysqli_query($con,$query);
+			if (mysqli_num_rows($result)>0) {
+				
+					echo "
+
+					<table>";
+					
+ 						while ($row=mysqli_fetch_assoc($result)) {
+ 							$pcode=$row['pcode'];
+
+ 							echo 
+ 						"<tr>
+ 						<td style='width: 125.6px'><img src='image/{$row['img']}' height='45px'></td>
+ 						<td style='width: 108px'>{$row['pcode']}</td>
+ 						<td style='width: 116px'>{$row['pname']}</td>
+ 						<td style='width: 92px'>{$row['psize']} </td>
+ 						<td style='width: 108px'>{$row['prize']}</td>
+ 						<td style='width: 161.6px'>{$row['quantity']}</td>
+ 						<td style='width: 141.6px'>{$row['gender']}</td>
+ 						<td style='width: 150.4px'><a id='rm' class='dl' href='item_delete.php?remove=$pcode'>Remove</a></td>
+ 						</tr>";
+
+ 						
+				}
+				echo "</table>";			
+			}
+			
+			}*/
+			
+			
+			
+			
+			
+			
+			}
+
+			?>
+		<?php
+
+			if (isset($_REQUEST['remove'])&&$_REQUEST['remove']=="rm") {
+				$max=count($_SESSION['cart']);
+				$p=$_GET['rem'];
+				
+				for ($i=0; $i <$max ; $i++) { 
+					$q=$_SESSION['cart'][$i];
+			//		echo "$q";
+					if ($q==$p) {
+						array_pop($_SESSION['cart'][$i]);
+					}
+				}
+/*
+			 	$mx=count($_SESSION['cart']);
+		
+			$i=0;
+			b:
+			
+			if($i<$mx){ 
+
+				$ar=$_SESSION['cart'][$i];
+				$query= "select * from all_product where pcode=$ar";
+				$result=mysqli_query($con,$query);
+			if (mysqli_num_rows($result)>0) {
+				
+					echo "
+
+					<table>";
+					if ($i==0) {
+						echo "
+ 						<tr>
+ 						<th>Image</th>
+ 						<th>Code</th>
+ 						<th>Name</th>
+ 						<th>Size</th>
+ 						<th>Prize</th>
+ 						
+ 						<th>Quantity</th>
+ 						<th>Gender</th>
+ 						<th></th>
+ 						</tr>";
+					}
+					
+ 						$row=mysqli_fetch_assoc($result);
+ 							$pcode=$row['pcode'];
+
+ 							echo 
+ 						"<tr>
+ 						<td style='width: 125.6px'><img src='image/{$row['img']}' height='45px'></td>
+ 						<td style='width: 108px'>{$row['pcode']}</td>
+ 						<td style='width: 116px'>{$row['pname']}</td>
+ 						<td style='width: 92px'>{$row['psize']} </td>
+ 						<td style='width: 108px'>{$row['prize']}</td>
+ 						<td style='width: 161.6px'>{$row['quantity']}</td>
+ 						<td style='width: 141.6px'>{$row['gender']}</td>
+ 						<td style='width: 150.4px'><a id='rm' class='dl' href='wishlist.php?rem=$pcode&remove=rm'>Remove</a></td>
+ 						</tr>";
+
+ 						
+				
+				echo "</table>";			
+			}
+			$i++;
+			
+			goto b;
+		}
+*/
+
+			}
+		?>
+
+		
+	</div>
+</div>
 	
 	<div>
 		

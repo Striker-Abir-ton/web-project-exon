@@ -28,20 +28,19 @@
 	margin: 25px 0px 0px;
 	padding:0px 10px;
 }
-#abag{
-	text-decoration: none;
-	color: #fff;
-	font-size: 18px;
 
-}
-#abag #bag{
+
+input[type=submit]{
+	font-weight: bold;
+	border:none;
+	cursor: pointer;
 	background-color: #018849;
 	height: 40px;
 	width: 210px;
 	text-align: center;
-	padding-top: 8px;
+	color: #fff;
+	font-size: 18px;
 }
-
 
 /********** Large devices only **********/
 @media (min-width: 1200px) and (max-width: 2560px) {

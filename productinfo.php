@@ -376,6 +376,7 @@
 				<h1>{$row['pname']}</h1>
 				<div style='padding-top: 10px'><h3>Prize : {$row['prize']} TK</h3></div>
 				
+				<form action='wishlist.php?pcode=$p&wish=wi' method='post'>
 				<div>
 				<br>
 				<br>
@@ -384,8 +385,10 @@
 				</div>
 				<div>
 				<br>
-					<a id='abag' href='wishlist.php?pcode=$p&wish=wi'><div id='bag'><b>Add To Bag</b></div></a>
+					<input type='submit' name='submit' value='Add To Bag'>
+					
 				</div>
+				</form>
 			</div>
 		</div>
 	</div>";

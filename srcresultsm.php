@@ -258,7 +258,7 @@
 				if (isset($_REQUEST['srch'])&&$_REQUEST['srch']=="src") {
 					$src_item=$_REQUEST['search'];
 					if ($src_item!=NULL) {
-						$query= "select * from all_product where pname like '%$src_item%'";
+						$query= "select * from all_product where pname like '%$src_item%' OR pcode='$src_item'";
 			
 						$result=mysqli_query($con,$query);
 						if (mysqli_num_rows($result)>0) {
