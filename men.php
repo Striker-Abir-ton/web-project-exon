@@ -176,7 +176,7 @@
 							<li class='divfor3ta'>
 								<div  id='dropdown-account'>
 									<button id='usericonbtn' type="button">
-										<a href="wishlist.php" target="_blank"><i class="fa fa-shopping-bag fa-2x"></i></a>
+										<a href="wishlist.php?wish=wi" target="_blank"><i class="fa fa-shopping-bag fa-2x"></i></a>
 									</button><!--end usericonbtn-->
 								</div><!--end dropdown-account-->
 							</li>

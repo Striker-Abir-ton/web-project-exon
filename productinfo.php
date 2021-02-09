@@ -285,7 +285,7 @@
 									<button id='usericonbtn' type="button">
 										<?php 
 										if ($user==1) {
-											echo "<a href='wishlist.php' target='_blank'><i class='fa fa-shopping-bag fa-2x'></i></a>";
+											echo "<a href='wishlist.php?wish=wi' target='_blank'><i class='fa fa-shopping-bag fa-2x'></i></a>";
 										}
 										else
 											echo "<a href='alrady-reg.php'><i class='fa fa-shopping-bag fa-2x'></i></a>";

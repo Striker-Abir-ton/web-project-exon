@@ -179,7 +179,7 @@
 							<li class='divfor3ta'>
 								<div  id='dropdown-account'>
 									<button id='usericonbtn' type="button">
-										<a href="wishlist.php" target="_blank"><i class="fa fa-shopping-bag fa-2x"></i></a>
+										<a href="wishlist.php?wish=wi"><i class="fa fa-shopping-bag fa-2x"></i></a>
 									</button><!--end usericonbtn-->
 								</div><!--end dropdown-account-->
 							</li>
@@ -245,8 +245,10 @@
 	
 	<div id='admin_content' style="text-align: none;">
 		<?php
-
+		//error_reporting(E_ERROR);
 		if (isset($_REQUEST['wish'])&& $_REQUEST['wish']=="wi") {
+			//header("Location:wishlist.php");
+			
 			$p=$_GET['pcode'];
 			$q=$_REQUEST['size'];
 		
@@ -304,7 +306,9 @@
  							$pcode=$row['pcode'];
 
  							echo 
- 						"<tr>
+ 						"
+ 						
+ 						<tr>
  						<td style='width: 125.6px'><img src='image/{$row['img']}' height='45px'></td>
  						<td style='width: 108px'>{$row['pcode']}</td>
  						<td style='width: 116px'>{$row['pname']}</td>
@@ -404,11 +408,6 @@
 			
 			}*/
 			
-			
-			
-			
-			
-			
 			}
 
 			?>
@@ -422,10 +421,12 @@
 					$q=$_SESSION['cart'][$i];
 			//		echo "$q";
 					if ($q==$p) {
-						array_pop($_SESSION['cart'][$i]);
+						unset($_SESSION['cart'][$i]); // for remove item from session array
+						$_SESSION['cart']=array_values($_SESSION['cart']);
 					}
 				}
-/*
+
+
 			 	$mx=count($_SESSION['cart']);
 		
 			$i=0;
@@ -479,7 +480,7 @@
 			
 			goto b;
 		}
-*/
+
 
 			}
 		?>
